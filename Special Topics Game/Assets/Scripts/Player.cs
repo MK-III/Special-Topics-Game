@@ -12,13 +12,18 @@ public class Player : MonoBehaviour {
 
     private Rigidbody2D player;
     private GroundCheck grndChk;
+    private Item item;
+
+    private ArrayList inv = new ArrayList();
+
+    short[] eqp = new short[3];
+   
 
 
 	// Use this for initialization
 	void Start () {
         player = GetComponent<Rigidbody2D>();
         grndChk = GetComponent<GroundCheck>();
-        //SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
     }
 
     private void FixedUpdate()
@@ -52,6 +57,24 @@ public class Player : MonoBehaviour {
         }
 
         return dampSpeed;
+    }
+
+    public void equipItem(short id, Item.type type)
+    {
+        switch (type)
+        {
+            case Item.type.Weapon:
+                eqp[0] = id;
+                break;
+
+            case Item.type.Medical:
+                eqp[1] = id;
+                break;
+
+            case Item.type.Assist:
+                eqp[2] = id;
+                break;
+        }
     }
 
 

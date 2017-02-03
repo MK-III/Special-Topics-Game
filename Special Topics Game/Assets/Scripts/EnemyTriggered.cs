@@ -13,7 +13,6 @@ public class EnemyTriggered : MonoBehaviour {
         if (col.tag.Contains("Enemy"))
         {
             contact = true;
-            SceneManager.UnloadSceneAsync("Scenes/gui");
             SceneManager.LoadSceneAsync("Scenes/combat", LoadSceneMode.Additive);
             Destroy(col.gameObject);
         }

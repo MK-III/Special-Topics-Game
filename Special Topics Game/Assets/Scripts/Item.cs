@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class Item{
+public abstract class Item{
 
     short id;
     type itemType;
