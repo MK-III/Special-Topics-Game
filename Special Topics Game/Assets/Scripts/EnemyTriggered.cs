@@ -7,15 +7,15 @@ public class EnemyTriggered : MonoBehaviour {
 
     public bool contact;
     private string enemyName;
-    public GameObject enemy;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag.Equals("Enemy"))
+        if (col.tag.Contains("Enemy"))
         {
             contact = true;
+            SceneManager.UnloadSceneAsync("Scenes/gui");
             SceneManager.LoadSceneAsync("Scenes/combat", LoadSceneMode.Additive);
-            Destroy(enemy);
+            Destroy(col.gameObject);
         }
         enemyName = col.name;
     }

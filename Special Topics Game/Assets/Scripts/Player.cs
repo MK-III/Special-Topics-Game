@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -17,7 +18,8 @@ public class Player : MonoBehaviour {
 	void Start () {
         player = GetComponent<Rigidbody2D>();
         grndChk = GetComponent<GroundCheck>();
-	}
+        //SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
+    }
 
     private void FixedUpdate()
     {
