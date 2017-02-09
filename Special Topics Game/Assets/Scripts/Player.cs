@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float maxSpeed = 5f;
     public bool inCombat = GlobalVariables.inCombat;
 
+
     private Rigidbody2D player;
     private GroundCheck grndChk;
 
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour {
 	void Start () {
         player = GetComponent<Rigidbody2D>();
         grndChk = GetComponent<GroundCheck>();
+        GlobalVariables.eqp[1] = new Fists(0, Item.type.Weapon);
+        GlobalVariables.eqp[0] = new Revolver(1, Item.type.Weapon);
         //SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
     }
 
@@ -34,6 +37,10 @@ public class Player : MonoBehaviour {
             player.velocity = new Vector2(-maxSpeed, player.velocity.y);
 
         player.velocity = dampSpeed(h);
+
+        //Add if statement to check if dead
+
+        Mathf.Clamp(GlobalVariables.health, 0, 100);
     }
 
     private Vector2 dampSpeed(float h)

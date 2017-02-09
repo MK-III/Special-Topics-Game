@@ -13,11 +13,14 @@ public class EnemyTriggered : MonoBehaviour {
         if (col.tag.Contains("Enemy"))
         {
             contact = true;
-            SceneManager.UnloadSceneAsync("Scenes/gui");
+            //SceneManager.UnloadSceneAsync("Scenes/gui");
             SceneManager.LoadSceneAsync("Scenes/combat", LoadSceneMode.Additive);
+
+            if (col.tag.Contains("Zombie")) { GlobalVariables.enemyName = "Zombie"; }
+            if (col.tag.Contains("Alien")) { GlobalVariables.enemyName = "Alien"; }
+
             Destroy(col.gameObject);
         }
-        enemyName = col.name;
     }
 
     void OnTriggerStay2D(Collider2D col)

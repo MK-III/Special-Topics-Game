@@ -10,7 +10,7 @@ public class ReturnToMain : MonoBehaviour {
         Debug.Log("On Click");
         GlobalVariables.inCombat = false;
         SceneManager.UnloadSceneAsync("Scenes/combat");
-        SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
 
     }
 

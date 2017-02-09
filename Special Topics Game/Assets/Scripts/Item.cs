@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class Item{
+public abstract class Item{
 
     short id;
     type itemType;
@@ -19,4 +19,12 @@ abstract class Item{
         Medical,
         Assist
     }
+
+    public abstract int[] ability1();
+    public abstract int[] ability2();
+
+
+    public abstract string getNameAbility1();
+    public abstract string getNameAbility2();
+
 }
