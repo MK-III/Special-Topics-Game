@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Special Topics Game", "Assembly-CSharp-firstpass.csproj", "{7DC2DE8B-5E21-DA62-6368-5DC2DEF919BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Special Topics Game", "Assembly-CSharp.csproj", "{214BA869-6A23-A9E9-4AC6-A0FDD8CDCA2B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Special Topics Game", "Assembly-CSharp-Editor-firstpass.csproj", "{097EB1E5-7738-8620-8818-765A13BFA417}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{7DC2DE8B-5E21-DA62-6368-5DC2DEF919BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC2DE8B-5E21-DA62-6368-5DC2DEF919BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC2DE8B-5E21-DA62-6368-5DC2DEF919BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214BA869-6A23-A9E9-4AC6-A0FDD8CDCA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214BA869-6A23-A9E9-4AC6-A0FDD8CDCA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214BA869-6A23-A9E9-4AC6-A0FDD8CDCA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214BA869-6A23-A9E9-4AC6-A0FDD8CDCA2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{097EB1E5-7738-8620-8818-765A13BFA417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{097EB1E5-7738-8620-8818-765A13BFA417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{097EB1E5-7738-8620-8818-765A13BFA417}.Release|Any CPU.ActiveCfg = Release|Any CPU
