@@ -19,8 +19,9 @@ public class Player : MonoBehaviour {
 	void Start () {
         player = GetComponent<Rigidbody2D>();
         grndChk = GetComponent<GroundCheck>();
-        GlobalVariables.eqp[1] = new Fists(0, Item.type.Weapon);
-        GlobalVariables.eqp[0] = new Revolver(1, Item.type.Weapon);
+        GlobalVariables.eqp[1] = new Dynamite(0, Item.type.Weapon);
+        GlobalVariables.eqp[0] = new Revolver(2, Item.type.Weapon);
+        GlobalVariables.eqp[2] = new FirstAidKit(13, Item.type.Weapon);
         //SceneManager.LoadSceneAsync("Scenes/gui", LoadSceneMode.Additive);
     }
 
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour {
 
         //Add if statement to check if dead
 
-        Mathf.Clamp(GlobalVariables.health, 0, 100);
+        
     }
 
     private Vector2 dampSpeed(float h)

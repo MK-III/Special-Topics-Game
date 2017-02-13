@@ -2,46 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fists : Item {
-
-    public int damage = 5;
-    public int attack = 100;
-    public int defense = 0;
+public class Dynamite : Item {
+    public int damage = 30;
+    public int attack = 20;
+    public int defense = 20;
     public short id;
     public Item.type type;
 
-    public Fists(short id, Item.type type) : base(id, type)
+    public Dynamite(short id, Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 0;
+        this.id = 1;
     }
 
-    //Punch
+    //Explode
     public override int[] ability1()
     {
         int[] combatVals = new int[2];
         //Attack/Cutting value
         combatVals[0] = attack;
         //Damage Value
-        combatVals[1] = Random.Range(damage - 1, damage + 1);
+        combatVals[1] = Random.Range(damage - 3, damage + 3);
         return combatVals;
     }
 
     public override string getNameAbility1()
     {
-        return "Punch";
+        return "Explode";
     }
 
-    //Strangle
+    //No second ability
     public override int[] ability2()
     {
-        int[] combatVals = { 3, 3 };
-        return combatVals;
+        return null;
     }
 
     public override string getNameAbility2()
     {
-        return "Strangle";
+        return null;
     }
 
 

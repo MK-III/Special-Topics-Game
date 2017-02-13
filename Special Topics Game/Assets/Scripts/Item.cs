@@ -23,8 +23,9 @@ public abstract class Item{
     public abstract int[] ability1();
     public abstract int[] ability2();
 
-
     public abstract string getNameAbility1();
     public abstract string getNameAbility2();
+
+    //public abstract int[] ChangeStats();
 
 }
