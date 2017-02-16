@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\Scripts\Combat.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Alien.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyTriggered.cs" />
      <Compile Include="Assets\Scripts\EnterCombat.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />

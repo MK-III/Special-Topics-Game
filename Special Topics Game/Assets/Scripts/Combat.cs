@@ -16,17 +16,21 @@ public class Combat : MonoBehaviour {
     public Text assistAbility;
     public Text enemyName;
     public Text TurnCount;
+    private bool turnChanged;
+    private bool[] abilityUsed = new bool[4];
 
 	// Use this for initialization
 	void Start () {
         combat = GetComponent<EnterCombat>();
         player = GetComponent<Player>();
         GlobalVariables.turn = 0;
+        abilityUsed = new[] { false, false, false, false, };
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         //enemyName = combat.getName();
+        Enemy enemy;
         health.text = "Health: " + GlobalVariables.health.ToString();
         TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
         ability1.text = GlobalVariables.eqp[0].getNameAbility1().ToString();
@@ -39,7 +43,34 @@ public class Combat : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
         }
-	}
+
+        switch (GlobalVariables.enemyName)
+        {
+            case "Alien":
+                enemy = new Alien(50);
+                if (turnChanged)
+                {
+                    switch (enemy.getUsedAbility())
+                    {
+                        case 1:
+                            enemy.ability1();
+                            break;
+                        case 2:
+                            enemy.ability2();
+                            break;
+                    }
+                }
+
+                turnChanged = false;
+                break;
+            case "Zombie":
+                break;
+        }
+
+        
+
+        abilityUsed = new[] { false, false, false, false, };
+    }
 
     private void Awake()
     {
@@ -54,20 +85,39 @@ public class Combat : MonoBehaviour {
     public void MedicalAbility()
     {
         GlobalVariables.eqp[2].ability1();
+        abilityUsed[2] = true;
     }
 
     public void AssistAbility()
     {
         GlobalVariables.eqp[1].ability1();
+        abilityUsed[1] = true;
     }
 
     public void Ability1()
     {
         GlobalVariables.eqp[0].ability1();
+        abilityUsed[0] = true;
     }
 
     public void Ability2()
     {
         GlobalVariables.eqp[0].ability2();
+        abilityUsed[1] = true;
     }
+
+    public int TurnChanged
+    {
+        get { return GlobalVariables.turn; }
+        set
+        {
+            GlobalVariables.turn = value;
+            if (GlobalVariables.turn == 1)
+            {
+                turnChanged = true;
+            }
+        }
+    }
+    
+
 }
