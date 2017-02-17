@@ -16,7 +16,7 @@ public class NanoBots : Item {
     //Heal
     public override int[] ability1()
     {
-        GlobalVariables.health += 50;
+        GlobalVariables.health += 60;
         return null;
     }
 

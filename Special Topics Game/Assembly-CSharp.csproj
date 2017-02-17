@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Items\Weapons\Plasma Pistol.cs" />
      <Compile Include="Assets\Scripts\Items\Weapons\Repeating Rifle.cs" />
      <Compile Include="Assets\Scripts\Items\Weapons\Revolver.cs" />
+     <Compile Include="Assets\Scripts\Items\Weapons\Saber.cs" />
      <Compile Include="Assets\Scripts\Jump.cs" />
      <Compile Include="Assets\Scripts\KillBox.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

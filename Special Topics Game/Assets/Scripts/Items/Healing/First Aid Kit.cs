@@ -16,7 +16,7 @@ public class FirstAidKit : Item {
     //Heal
     public override int[] ability1()
     {
-        GlobalVariables.health += 25;
+        GlobalVariables.health += 20;
         return null;
     }
 

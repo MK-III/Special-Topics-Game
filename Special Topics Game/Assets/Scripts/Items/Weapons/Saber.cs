@@ -2,48 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fists : Item {
-
-    public int damage = 20;
+public class Saber : Item {
+    public int damage = 55;
     public int attack = 0;
-    public int defense = -10;
+    public int defense = -15;
     public short id;
     public Item.type type;
 
-    public Fists(short id, Item.type type) : base(id, type)
+    public Saber(short id, Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 0;
+        this.id = 19;
     }
 
     public override int[] ability1()
     {
         int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack + 105, attack +115);
+        combatVals[0] = Random.Range(attack + 75, attack + 85);
         combatVals[1] = Random.Range(damage - 5, damage + 5);
-        combatVals[2] = Random.Range(defense - 2, defense + 2);
+        combatVals[2] = Random.Range(defense - 5, defense + 5);
         return combatVals;
     }
 
     public override string getNameAbility1()
     {
-        return "Punch";
+        return "Slash";
     }
 
     public override int[] ability2()
     {
         int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack -17, attack -13);
-        combatVals[1] = Random.Range(damage +20, damage + 40);
-        combatVals[2] = Random.Range(defense - 12, defense - 8);
+        combatVals[0] = Random.Range(attack - 20, attack - 10);
+        combatVals[1] = Random.Range(damage + 15, damage + 25);
+        combatVals[2] = Random.Range(defense - 20, defense - 10);
         return combatVals;
     }
 
     public override string getNameAbility2()
     {
-        return "Strangle";
+        return "Charge";
     }
 
 
 
 }
+

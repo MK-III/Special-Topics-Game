@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LazerSaber : Item {
-    public int damage = 30;
-    public int attack = 20;
-    public int defense = 20;
+    public int damage = 65;
+    public int attack = 90;
+    public int defense = -15;
     public short id;
     public Item.type type;
 
     public LazerSaber(short id, Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 1;
+        this.id = 4;
     }
 
-    //Shoot
     public override int[] ability1()
     {
-        int[] combatVals = new int[2];
-        //Attack/Cutting value
-        combatVals[0] = attack;
-        //Damage Value
-        combatVals[1] = Random.Range(damage - 3, damage + 3);
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack - 5, attack + 5);
+        combatVals[1] = Random.Range(damage - 5, damage + 5);
+        combatVals[2] = Random.Range(defense -5, defense + 5);
         return combatVals;
     }
 
     public override string getNameAbility1()
     {
-        return "Shoot";
+        return "Slash";
     }
 
-    //Melee
     public override int[] ability2()
     {
         return null;

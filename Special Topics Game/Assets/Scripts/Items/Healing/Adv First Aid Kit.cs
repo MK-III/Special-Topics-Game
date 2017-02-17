@@ -16,7 +16,7 @@ public class AdvFirstAidKit : Item {
     //Heal
     public override int[] ability1()
     {
-        GlobalVariables.health += 50;
+        GlobalVariables.health += 40;
         return null;
     }
 

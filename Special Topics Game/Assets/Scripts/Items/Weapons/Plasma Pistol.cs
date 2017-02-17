@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class PlasmaPistol : Item {
 
-    public int damage = 30;
-    public int attack = 20;
-    public int defense = 20;
+    public int damage = 35;
+    public int attack = 15;
+    public int defense = 0;
     public short id;
     public Item.type type;
 
     public PlasmaPistol(short id, Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 1;
+        this.id = 2;
     }
 
-    //Shoot
     public override int[] ability1()
     {
-        int[] combatVals = new int[2];
-        //Attack/Cutting value
-        combatVals[0] = attack;
-        //Damage Value
-        combatVals[1] = Random.Range(damage - 3, damage + 3);
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack - 3, attack + 3);
+        combatVals[1] = Random.Range(damage - 7, damage + 7);
+        combatVals[2] = Random.Range(defense - 1, defense + 1);
         return combatVals;
     }
 
@@ -32,10 +30,12 @@ public class PlasmaPistol : Item {
         return "Shoot";
     }
 
-    //Melee
     public override int[] ability2()
     {
-        int[] combatVals = { 3, 3 };
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack -12, attack -8);
+        combatVals[1] = Random.Range(damage +10, damage +20);
+        combatVals[2] = Random.Range(defense - 12, defense -8);
         return combatVals;
     }
 

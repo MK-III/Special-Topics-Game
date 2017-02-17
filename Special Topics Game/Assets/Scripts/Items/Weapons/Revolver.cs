@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Revolver : Item {
 
-    public int attack = 5;
+    public int attack = 15;
     public int damage = 30;
-    public int defense = -5;
+    public int defense = 0;
     public short id;
     public Item.type type;
 
@@ -16,15 +16,12 @@ public class Revolver : Item {
         this.id = 1;
     }    
    
-    //Shoot
     public override int[] ability1()
     {
         int[] combatVals = new int[3];
-        //Attack/Cutting value
-        combatVals[0] = attack;
-        //Damage Value
+        combatVals[0] = Random.Range(attack - 3, attack + 3);
         combatVals[1] = Random.Range(damage - 3, damage + 3);
-        combatVals[2] = Random.Range(defense - 5, defense + 5);
+        combatVals[2] = Random.Range(defense-1, defense +1);
         return combatVals;
     }
 
@@ -33,22 +30,17 @@ public class Revolver : Item {
         return "Shoot";
     }
 
-    //Melee
     public override int[] ability2()
     {
-        int[] combatVals = { 100, 50 }; //(*) Need to figure out how to lower defense for the enemies attack
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack - 12, attack - 8);
+        combatVals[1] = Random.Range(damage - 5, damage + 15);
+        combatVals[2] = Random.Range(defense - 12, defense -8);
         return combatVals;
     }
 
     public override string getNameAbility2()
     {
-        return "Melee";
+        return "Pistol Whip dat Bitch";
     }
-
-    //public override int[] ChangeStats(int PStat, int Changeto)
-   // {
-   //     int[] changes = { };
-   //     return changes;
-  //  }
-
 }
