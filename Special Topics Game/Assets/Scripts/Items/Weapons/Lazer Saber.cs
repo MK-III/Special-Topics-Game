@@ -34,13 +34,12 @@ public class LazerSaber : Item {
     //Melee
     public override int[] ability2()
     {
-        int[] combatVals = { 3, 3 };
-        return combatVals;
+        return null;
     }
 
     public override string getNameAbility2()
     {
-        return "Melee";
+        return "Deflect";
     }
 
 

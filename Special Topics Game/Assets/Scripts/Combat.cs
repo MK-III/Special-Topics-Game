@@ -17,20 +17,39 @@ public class Combat : MonoBehaviour {
     public Text enemyName;
     public Text TurnCount;
     private bool turnChanged;
-    private bool[] abilityUsed = new bool[4];
+    private bool attackChanged;
+    private bool defenseChanged;
+    private bool[] playerAbilityUsed = new bool[4];
+    Enemy enemy;
+    private bool deflect;
+    int turnCountA;
+    int turnCountB;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         combat = GetComponent<EnterCombat>();
         player = GetComponent<Player>();
         GlobalVariables.turn = 0;
-        abilityUsed = new[] { false, false, false, false, };
-	}
+        playerAbilityUsed = new[] { false, false, false, false, };
+        switch (GlobalVariables.enemyName)
+        {
+            case "Alien":
+                enemy = new Alien();
+                turnChanged = false;
+                break;
+            case "Zombie":
+                enemy = null;
+                break;
+            default:
+                enemy = null;
+                break;
+        }
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         //enemyName = combat.getName();
-        Enemy enemy;
+        
         health.text = "Health: " + GlobalVariables.health.ToString();
         TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
         ability1.text = GlobalVariables.eqp[0].getNameAbility1().ToString();
@@ -39,37 +58,48 @@ public class Combat : MonoBehaviour {
         medicalAbility.text = GlobalVariables.eqp[2].getNameAbility1().ToString();
         enemyName.text = GlobalVariables.enemyName;
         if(GlobalVariables.health > 100) { GlobalVariables.health = 100; }
-        if (GlobalVariables.health==0)
-        {
+        if (GlobalVariables.health==0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
         }
 
-        switch (GlobalVariables.enemyName)
-        {
-            case "Alien":
-                enemy = new Alien(50);
-                if (turnChanged)
-                {
-                    switch (enemy.getUsedAbility())
-                    {
-                        case 1:
-                            enemy.ability1();
-                            break;
-                        case 2:
-                            enemy.ability2();
-                            break;
-                    }
-                }
 
-                turnChanged = false;
-                break;
-            case "Zombie":
-                break;
+        if (playerAbilityUsed[0]){
+            enemy.doDamage(DamageCalc(GlobalVariables.eqp[0].ability1(), enemy.defense, false));
         }
 
-        
+        if (playerAbilityUsed[1])
+        {
+            if (GlobalVariables.eqp[0].Equals(typeof(LazerSaber))){
+                if (Random.Range(0, 100) <= 35)
+                    deflect = true;
+            }
+            enemy.doDamage(DamageCalc(GlobalVariables.eqp[0].ability2(), enemy.defense, false));
+        }
 
-        abilityUsed = new[] { false, false, false, false, };
+        if (enemy.health == 0)
+            enemy.killEnemy();
+
+        if (turnChanged){
+            switch (enemy.getUsedAbility()){
+                case 1:
+                    if (deflect)
+                        enemy.health -= 2 * DamageCalc(enemy.ability1(), enemy.defense, true);
+                    else
+                        GlobalVariables.health -= DamageCalc(enemy.ability1(), GlobalVariables.PDefense, false);
+                    break;
+                case 2:
+                    if (deflect)
+                        enemy.health -= 2 * DamageCalc(enemy.ability2(), enemy.defense, true);
+                    else
+                        GlobalVariables.health -= DamageCalc(enemy.ability2(), GlobalVariables.PDefense, false);
+                    break;
+            }
+        }
+        
+        if(!defenseChanged)
+            GlobalVariables.PDefense = GlobalVariables.PDEFENSE;
+
+        playerAbilityUsed = new[] { false, false, false, false, };
     }
 
     private void Awake()
@@ -85,25 +115,25 @@ public class Combat : MonoBehaviour {
     public void MedicalAbility()
     {
         GlobalVariables.eqp[2].ability1();
-        abilityUsed[2] = true;
+        playerAbilityUsed[2] = true;
     }
 
     public void AssistAbility()
     {
         GlobalVariables.eqp[1].ability1();
-        abilityUsed[1] = true;
+        playerAbilityUsed[1] = true;
     }
 
     public void Ability1()
     {
         GlobalVariables.eqp[0].ability1();
-        abilityUsed[0] = true;
+        playerAbilityUsed[0] = true;
     }
 
     public void Ability2()
     {
         GlobalVariables.eqp[0].ability2();
-        abilityUsed[1] = true;
+        playerAbilityUsed[1] = true;
     }
 
     public int TurnChanged
@@ -114,9 +144,58 @@ public class Combat : MonoBehaviour {
             GlobalVariables.turn = value;
             if (GlobalVariables.turn == 1)
             {
+                Debug.Log("WHY THE FUCK DONT YOU WORK YOU NIGGER-FAGGOT");
+                if (attackChanged)
+                    turnCountA++;
+                if (turnCountA == 1)
+                    turnCountA++;
+                if(turnCountA == 2)
+                    GlobalVariables.PAttack = GlobalVariables.PATTACK;
+
+                if (attackChanged)
+                    turnCountB++;
+                if (turnCountB == 1)
+                    turnCountB++;
+                if (turnCountB == 2)
+                    GlobalVariables.PDefense = GlobalVariables.PDEFENSE;
                 turnChanged = true;
             }
         }
+    }
+
+    public int AttckChanged
+    {
+        get { return GlobalVariables.PAttack; }
+        set
+        {
+            GlobalVariables.PAttack = value;
+            if (GlobalVariables.PAttack == 1)
+            {
+                attackChanged = true;
+            }
+        }
+    }
+
+    public int DefenseChanged
+    {
+        get { return GlobalVariables.PDefense; }
+        set
+        {
+            GlobalVariables.PDefense = value;
+            if (GlobalVariables.PDefense == 1)
+            {
+                defenseChanged = true;
+            }
+        }
+    }
+
+    public int DamageCalc(int[] combatVals, int targetDef, bool guarenteed)
+    {
+        combatVals = new int[3];
+        if (Random.Range(0, 100) >= targetDef - (combatVals[0] + GlobalVariables.PAttack) || guarenteed)
+            return combatVals[1];
+        else
+            return 0;
     }
     
 

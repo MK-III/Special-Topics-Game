@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public abstract class Enemy{
 
     public int health;
+    public int defense;
+    public int attack;
 
-    public Enemy(int health)
+    public Enemy(int health, int defense, int attack)
     {
         this.health = health;
+        this.defense = defense;
+        this.attack = attack;
     }
 
     public abstract int[] ability1();

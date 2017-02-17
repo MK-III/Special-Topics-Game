@@ -7,18 +7,17 @@ using System.Collections.Generic;
 
 public class Alien : Enemy {
 
-    int health;
-    int defense = 20;
-    int attack = 20;
+    public static int health = 50;
+    public static int defense = 20;
+    public static int attack = 20;
 
-    public Alien(int health) : base(health)
+    public Alien() : base(health, defense, attack)
     {
-        this.health = health;
     }
 
     public override int getUsedAbility()
     {
-        throw new NotImplementedException();
+        return 1;
     }
 
     public override int[] ability1()
@@ -27,6 +26,7 @@ public class Alien : Enemy {
         combatVals[0] = attack;
         combatVals[1] = UnityEngine.Random.Range(20, 25);
         combatVals[2] = UnityEngine.Random.Range(defense-3, defense+2);
+        Debug.Log("WHY THE FUCK DONT YOU WORK YOU NIGGER-FAGGOT");
         return combatVals;
     }
     public override int[] ability2()

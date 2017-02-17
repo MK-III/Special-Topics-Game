@@ -2,15 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Moonshine : MonoBehaviour {
+public class Moonshine : Item {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public short id;
+    public Item.type type;
+
+    public Moonshine(short id, Item.type type) : base(id, type)
+    {
+        this.type = type;
+        this.id = 17;
+    }
+
+    //Heal
+    public override int[] ability1()
+    {
+        GlobalVariables.PDamage += 50;
+        return null;
+    }
+
+    public override string getNameAbility1()
+    {
+        return "Moonshine";
+    }
+
+    //No second ability
+    public override int[] ability2()
+    {
+        return null;
+    }
+
+    public override string getNameAbility2()
+    {
+        return null;
+    }
+
+
+
 }
+
