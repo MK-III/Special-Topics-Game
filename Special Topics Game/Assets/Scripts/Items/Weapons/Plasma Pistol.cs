@@ -16,33 +16,26 @@ public class PlasmaPistol : Item {
         this.id = 2;
     }
 
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack - 3, attack + 3);
-        combatVals[1] = Random.Range(damage - 7, damage + 7);
-        combatVals[2] = Random.Range(defense - 1, defense + 1);
-        return combatVals;
+
     }
 
     public override string getNameAbility1()
     {
-        return "Shoot";
+        return "";
     }
 
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack -12, attack -8);
-        combatVals[1] = Random.Range(damage +10, damage +20);
-        combatVals[2] = Random.Range(defense - 12, defense -8);
-        return combatVals;
+
     }
 
     public override string getNameAbility2()
     {
-        return "Melee";
+        return null;
     }
+
 
 
 

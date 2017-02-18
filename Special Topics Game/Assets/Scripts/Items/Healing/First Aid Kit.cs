@@ -13,22 +13,19 @@ public class FirstAidKit : Item {
         this.id = 13;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.health += 20;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "First Aid Kit";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()

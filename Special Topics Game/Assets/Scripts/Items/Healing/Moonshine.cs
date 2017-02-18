@@ -13,28 +13,26 @@ public class Moonshine : Item {
         this.id = 17;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.PDamage += 50;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "Moonshine";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
     {
         return null;
     }
+
 
 
 

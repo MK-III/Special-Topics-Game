@@ -13,28 +13,26 @@ public class NanoBots : Item {
         this.id = 18;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.health += 60;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "NanoBots";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
     {
         return null;
     }
+
 
 
 

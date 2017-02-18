@@ -15,29 +15,26 @@ public class LazerSaber : Item {
         this.id = 4;
     }
 
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack - 5, attack + 5);
-        combatVals[1] = Random.Range(damage - 5, damage + 5);
-        combatVals[2] = Random.Range(defense -5, defense + 5);
-        return combatVals;
+
     }
 
     public override string getNameAbility1()
     {
-        return "Slash";
+        return "";
     }
 
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
     {
-        return "Deflect";
+        return null;
     }
+
 
 
 
