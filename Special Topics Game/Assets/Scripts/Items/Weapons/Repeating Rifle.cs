@@ -6,13 +6,12 @@ public class RepeatingRifle : Item {
     public int attack = 40;
     public int damage = 40;
     public int defense = 0;
-    public short id;
+    public static short id = 6;
     public Item.type type;
 
-    public RepeatingRifle(short id, Item.type type) : base(id, type)
+    public RepeatingRifle(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 6;
     }
 
     public override void ability1(Entity target)

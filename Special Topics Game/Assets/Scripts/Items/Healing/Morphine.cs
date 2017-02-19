@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Morphine : Item {
 
-    public short id;
+    public static short id = 17;
     public Item.type type;
 
-    public Morphine(short id, Item.type type) : base(id, type)
+    public Morphine(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 16;
     }
 
     public override void ability1(Entity target)

@@ -7,13 +7,12 @@ public class LaserRifle : Item {
     public int damage = 47;
     public int attack = 0;
     public int defense = 0;
-    public short id;
+    public static short id = 3;
     public Item.type type;
 
-    public LaserRifle(short id, Item.type type) : base(id, type)
+    public LaserRifle(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 3;
     }
 
     public override void ability1(Entity target)

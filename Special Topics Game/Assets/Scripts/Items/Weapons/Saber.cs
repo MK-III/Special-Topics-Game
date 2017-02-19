@@ -6,13 +6,12 @@ public class Saber : Item {
     public int damage = 55;
     public int attack = 0;
     public int defense = -15;
-    public short id;
+    public static short id = 7;
     public Item.type type;
 
-    public Saber(short id, Item.type type) : base(id, type)
+    public Saber(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 19;
     }
 
     public override void ability1(Entity target)

@@ -27,6 +27,10 @@ public abstract class Item{
     public abstract string getNameAbility1();
     public abstract string getNameAbility2();
 
+    public type GetItemType(){
+        return itemType;
+    }
+
     //public abstract int[] ChangeStats();
 
 }

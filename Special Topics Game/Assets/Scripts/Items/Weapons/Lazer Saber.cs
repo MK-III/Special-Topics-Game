@@ -6,13 +6,12 @@ public class LazerSaber : Item {
     public int damage = 65;
     public int attack = 90;
     public int defense = -15;
-    public short id;
+    public static short id = 4;
     public Item.type type;
 
-    public LazerSaber(short id, Item.type type) : base(id, type)
+    public LazerSaber(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 4;
     }
 
     public override void ability1(Entity target)

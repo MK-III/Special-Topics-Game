@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Moonshine : Item {
 
-    public short id;
+    public static short id = 18;
     public Item.type type;
 
-    public Moonshine(short id, Item.type type) : base(id, type)
+    public Moonshine(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 17;
     }
 
     public override void ability1(Entity target)

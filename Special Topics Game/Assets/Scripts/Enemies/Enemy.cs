@@ -16,6 +16,8 @@ public abstract class Enemy : Entity{
         this.attack = attack;
     }
 
+    public abstract void changeTarget(Entity newTarget);
+
     public override abstract void ability1(Entity target);
     public override abstract void ability2(Entity target);
     public override abstract void ability3(Entity target);
@@ -28,7 +30,7 @@ public abstract class Enemy : Entity{
 
     public abstract int getUsedAbility();
 
-    public void doDamage(int damage)
+    public override void doDamage(int damage)
     {
         health -= damage;
     }

@@ -12,7 +12,7 @@ public class Player : Entity{
     private Item[] eqp = new Item[3];
     private static ArrayList inv = new ArrayList();
 
-    private int health;
+    private int health = 100;
     private int addDefense;
     private int addAttack;
 
@@ -20,6 +20,7 @@ public class Player : Entity{
         eqp = new Item[] { null, null, null };
     }
 
+    //Abilities
     public void WeaponAbility1(Entity target){
         eqp[0].ability1(target);
     }
@@ -37,21 +38,30 @@ public class Player : Entity{
     }
 
     public string GetNameWeaponAbility1(){
+        if (eqp[0] == null)
+            return "";
         return eqp[0].getNameAbility1();
     }
 
     public string GetNameWeaponAbility2(){
+        if (eqp[0] == null)
+            return "";
         return eqp[0].getNameAbility2();
     }
 
     public string GetNameAssistAbility(){
+        if (eqp[1] == null)
+            return "";
         return eqp[1].getNameAbility1();
     }
 
     public string GetNameMedicalAbility(){
+        if (eqp[2] == null)
+            return "";
         return eqp[2].getNameAbility1();
     }
 
+    //Statistics Methods
     public int getHealth(){
         return health;
     }
@@ -68,10 +78,11 @@ public class Player : Entity{
         health = val;
     }
 
-    public void doDamage(int damage){
+    public override void doDamage(int damage){
         health -= damage;
     }
 
+    //Overriden entity methods
     public override void ability1(Entity target)
     {
         WeaponAbility1(target);
@@ -110,5 +121,32 @@ public class Player : Entity{
     public override string getAbility4Name()
     {
         return GetNameMedicalAbility();
+    }
+
+    //Equipment
+    public void EquipItem(Item item){
+        switch (item.GetItemType()){
+            case Item.type.Weapon:
+                EquipWeapon(item);
+                break;
+            case Item.type.Assist:
+                EquipWeapon(item);
+                break;
+            case Item.type.Medical:
+                EquipWeapon(item);
+                break;
+        }
+    }
+
+    private void EquipWeapon(Item item){
+        eqp[0] = item;
+    }
+
+    private void EquipAssist(Item item){
+        eqp[1] = item;
+    }
+
+    private void EquipMedical(Item item){
+        eqp[2] = item;
     }
 }

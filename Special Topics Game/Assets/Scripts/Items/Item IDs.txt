@@ -1,0 +1,27 @@
+Medical:
+Nanobots - 19
+Morphine - 17
+Moonshine - 18
+First Aid Kit - 13
+Alien Probe - 16
+Adv First Aid Kit - 15
+(NEED ITEM HERE) - 20
+
+Assistance:
+Dynamite - 8
+Flare Gun - 9
+Flash Bang - 10
+Invisibility - 11
+Shield - 12
+Smoke Bomb - 13
+(NEED ITEM HERE) - 14
+
+Weapons:
+Fists - 0
+Gattlin Gun - 5
+Laser Rifle - 3
+Lazer Saber - 4
+Plasma Pistol - 2
+Repeating Rifle - 6
+Revolver - 1
+Saber - 7

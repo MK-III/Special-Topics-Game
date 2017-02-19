@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class NanoBots : Item {
 
-    public short id;
+    public static short id = 19;
     public Item.type type;
 
-    public NanoBots(short id, Item.type type) : base(id, type)
+    public NanoBots(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 18;
     }
 
     public override void ability1(Entity target)

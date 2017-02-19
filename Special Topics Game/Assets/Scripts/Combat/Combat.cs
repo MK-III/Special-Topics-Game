@@ -16,7 +16,11 @@ public class Combat : MonoBehaviour {
     public Text assistAbility;
     public Text enemyName;
     public Text TurnCount;
+    public Text enemyHealth;
+    private Entity enemyTarget = Instantiaion.player;
+    private Entity playerTarget;
     Enemy enemy;
+
 
     // Use this for initialization
     void Start () {
@@ -25,7 +29,7 @@ public class Combat : MonoBehaviour {
         switch (GlobalVariables.enemyName)
         {
             case "Alien":
-                enemy = new Alien(Instantiaion.player);
+                enemy = new Alien(enemyTarget);
                 break;
             case "Zombie":
                 enemy = null;
@@ -34,6 +38,7 @@ public class Combat : MonoBehaviour {
                 enemy = null;
                 break;
         }
+        playerTarget = enemy;
     }
 	
 	// Update is called once per frame
@@ -45,28 +50,35 @@ public class Combat : MonoBehaviour {
         assistAbility.text = Instantiaion.player.GetNameAssistAbility();
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
+        enemyHealth.text = "Enemy Health: " + enemy.health.ToString();
+        Debug.Log(enemy.health);
+        Debug.Log(GlobalVariables.enemyName);
         if(Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
         if (Instantiaion.player.getHealth() <= 0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
         }
 
+        if (enemy.health <= 0)
+            enemy.killEnemy();
+
         if (turnChanged){
             switch (enemy.getUsedAbility()){
                 case 1:
-                    enemy.ability1(Instantiaion.player);
+                    enemy.ability1(enemyTarget);
                     break;
                 case 2:
-                    enemy.ability2(Instantiaion.player);
+                    enemy.ability2(enemyTarget);
                     break;
                 case 3:
-                    enemy.ability3(Instantiaion.player);
+                    enemy.ability3(enemyTarget);
                     break;
                 case 4:
-                    enemy.ability4(Instantiaion.player);
+                    enemy.ability4(enemyTarget);
                     break;
             }
         }
 
+        turnChanged = false;
     }
 
     
@@ -91,5 +103,20 @@ public class Combat : MonoBehaviour {
             return 0;
     }
     
+    public void ActivateWeaponAbility1(){
+        Instantiaion.player.WeaponAbility1(playerTarget);
+    }
+
+    public void ActivateWeaponAbility2(){
+        Instantiaion.player.WeaponAbility2(playerTarget);
+    }
+
+    public void ActivateAssistAbility(){
+        Instantiaion.player.AssistAbility(playerTarget);
+    }
+
+    public void ActivateMedicalAbility(){
+        Instantiaion.player.MedicalAbility(playerTarget);
+    }
 
 }

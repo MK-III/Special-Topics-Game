@@ -14,4 +14,6 @@ public abstract class Entity {
     public abstract string getAbility3Name();
     public abstract string getAbility4Name();
 
+    public abstract void doDamage(int damage);
+
 }

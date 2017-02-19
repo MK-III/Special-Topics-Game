@@ -18,12 +18,17 @@ public class Alien : Enemy {
         this.TARGET = target;
     }
 
+    public override void changeTarget(Entity newTarget)
+    {
+        this.target = newTarget;
+    }
+
     public override int getUsedAbility(){
         return 1;
     }
 
     public override void ability1(Entity target){
-        
+        target.doDamage(20);
     }
     public override void ability2(Entity target){
        

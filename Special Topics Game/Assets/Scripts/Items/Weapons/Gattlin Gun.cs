@@ -6,13 +6,12 @@ public class GattlinGun : Item {
     public int damage = 60;
     public int attack = 5;
     public int defense = -5;
-    public short id;
+    public static short id = 5;
     public Item.type type;
 
-    public GattlinGun(short id, Item.type type) : base(id, type)
+    public GattlinGun(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 5;
     }
 
     public override void ability1(Entity target)

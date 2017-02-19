@@ -7,13 +7,12 @@ public class PlasmaPistol : Item {
     public int damage = 35;
     public int attack = 15;
     public int defense = 0;
-    public short id;
+    public static short id = 2;
     public Item.type type;
 
-    public PlasmaPistol(short id, Item.type type) : base(id, type)
+    public PlasmaPistol(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 2;
     }
 
     public override void ability1(Entity target)

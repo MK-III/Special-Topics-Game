@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AlienProbe : Item {
 
-    public short id;
+    public static short id = 16;
     public Item.type type;
 
-    public AlienProbe(short id, Item.type type) : base(id, type)
+    public AlienProbe(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 15;
     }
 
     public override void ability1(Entity target)

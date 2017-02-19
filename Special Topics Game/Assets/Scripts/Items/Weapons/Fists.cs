@@ -7,23 +7,22 @@ public class Fists : Item {
     public int damage = 20;
     public int attack = 0;
     public int defense = -10;
-    public short id;
+    public static short id = 0;
     public Item.type type;
 
-    public Fists(short id, Item.type type) : base(id, type)
+    public Fists(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 0;
     }
 
     public override void ability1(Entity target)
     {
-
+        target.doDamage(15);
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "Punch";
     }
 
     public override void ability2(Entity target)
@@ -33,7 +32,7 @@ public class Fists : Item {
 
     public override string getNameAbility2()
     {
-        return null;
+        return "Strangle";
     }
 
 

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dynamite : Item {
+
     public int damage = 30;
     public int attack = 20;
     public int defense = 20;
-    public short id;
+    public static short id = 8;
     public Item.type type;
 
-    public Dynamite(short id, Item.type type) : base(id, type)
+    public Dynamite(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 1;
     }
 
     //Explode

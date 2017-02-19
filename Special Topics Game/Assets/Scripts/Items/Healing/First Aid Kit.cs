@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class FirstAidKit : Item {
 
-    public short id;
+    public static short id = 13;
     public Item.type type;
 
-    public FirstAidKit(short id, Item.type type) : base(id, type)
+    public FirstAidKit(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 13;
     }
 
     public override void ability1(Entity target)
