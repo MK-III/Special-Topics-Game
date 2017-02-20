@@ -4,31 +4,27 @@ using UnityEngine;
 
 public class FirstAidKit : Item {
 
-    public short id;
+    public static short id = 13;
     public Item.type type;
 
-    public FirstAidKit(short id, Item.type type) : base(id, type)
+    public FirstAidKit(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 13;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.health += 20;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "First Aid Kit";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()

@@ -7,22 +7,17 @@ public class Fists : Item {
     public int damage = 20;
     public int attack = 0;
     public int defense = -10;
-    public short id;
+    public static short id = 0;
     public Item.type type;
 
-    public Fists(short id, Item.type type) : base(id, type)
+    public Fists(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 0;
     }
 
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack + 105, attack +115);
-        combatVals[1] = Random.Range(damage - 5, damage + 5);
-        combatVals[2] = Random.Range(defense - 2, defense + 2);
-        return combatVals;
+        target.doDamage(15);
     }
 
     public override string getNameAbility1()
@@ -30,19 +25,16 @@ public class Fists : Item {
         return "Punch";
     }
 
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack -17, attack -13);
-        combatVals[1] = Random.Range(damage +20, damage + 40);
-        combatVals[2] = Random.Range(defense - 12, defense - 8);
-        return combatVals;
+
     }
 
     public override string getNameAbility2()
     {
         return "Strangle";
     }
+
 
 
 

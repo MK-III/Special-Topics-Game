@@ -10,57 +10,48 @@ public class Alien : Enemy {
     public static int health = 50;
     public static int defense = 20;
     public static int attack = 20;
+    private Entity target;
+    private Entity TARGET;
 
-    public Alien() : base(health, defense, attack)
-    {
+    public Alien(Entity target) : base(health, defense, attack, target){
+        this.target = target;
+        this.TARGET = target;
     }
 
-    public override int getUsedAbility()
+    public override void changeTarget(Entity newTarget)
     {
+        this.target = newTarget;
+    }
+
+    public override int getUsedAbility(){
         return 1;
     }
 
-    public override int[] ability1()
-    {
-        int[] combatVals = new int[3];
-        combatVals[0] = attack;
-        combatVals[1] = UnityEngine.Random.Range(20, 25);
-        combatVals[2] = UnityEngine.Random.Range(defense-3, defense+2);
-        Debug.Log("WHY THE FUCK DONT YOU WORK YOU NIGGER-FAGGOT");
-        return combatVals;
+    public override void ability1(Entity target){
+        target.doDamage(20);
     }
-    public override int[] ability2()
-    {
-        int[] combatVals = new int[3];
-        combatVals[0] = attack;
-        combatVals[1] = UnityEngine.Random.Range(20, 25);
-        combatVals[2] = UnityEngine.Random.Range(defense - 15, defense - 10);
-        return combatVals;
+    public override void ability2(Entity target){
+       
     }
-    public override int[] ability3()
-    {
+    public override void ability3(Entity target){
+
+    }
+    public override void ability4(Entity target){
+
+    }
+
+    public override string getAbility1Name(){
+        return "Laser Beam";
+    }
+    public override string getAbility2Name(){
+        return "Claw";
+    }
+    public override string getAbility3Name(){
         return null;
     }
-    public override int[] ability4()
-    {
+    public override string getAbility4Name(){
         return null;
     }
 
-    public override string getAbility1Name()
-    {
-        return "Laser Beam";
-    }
-    public override string getAbility2Name()
-    {
-        return "Claw";
-    }
-    public override string getAbility3Name()
-    {
-        return null;
-    }
-    public override string getAbility4Name()
-    {
-        return null;
-    }
 
 }

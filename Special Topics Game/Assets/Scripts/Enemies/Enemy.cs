@@ -3,32 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class Enemy{
+public abstract class Enemy : Entity{
 
     public int health;
     public int defense;
     public int attack;
 
-    public Enemy(int health, int defense, int attack)
+    public Enemy(int health, int defense, int attack, Entity target)
     {
         this.health = health;
         this.defense = defense;
         this.attack = attack;
     }
 
-    public abstract int[] ability1();
-    public abstract int[] ability2();
-    public abstract int[] ability3();
-    public abstract int[] ability4();
+    public abstract void changeTarget(Entity newTarget);
 
-    public abstract string getAbility1Name();
-    public abstract string getAbility2Name();
-    public abstract string getAbility3Name();
-    public abstract string getAbility4Name();
+    public override abstract void ability1(Entity target);
+    public override abstract void ability2(Entity target);
+    public override abstract void ability3(Entity target);
+    public override abstract void ability4(Entity target);
+
+    public override abstract string getAbility1Name();
+    public override abstract string getAbility2Name();
+    public override abstract string getAbility3Name();
+    public override abstract string getAbility4Name();
 
     public abstract int getUsedAbility();
 
-    public void doDamage(int damage)
+    public override void doDamage(int damage)
     {
         health -= damage;
     }

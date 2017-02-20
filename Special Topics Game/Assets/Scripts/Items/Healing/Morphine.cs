@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class Morphine : Item {
 
-    public short id;
+    public static short id = 17;
     public Item.type type;
 
-    public Morphine(short id, Item.type type) : base(id, type)
+    public Morphine(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 16;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.PDefense += 50;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "Morphine";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
     {
         return null;
     }
+
 
 
 

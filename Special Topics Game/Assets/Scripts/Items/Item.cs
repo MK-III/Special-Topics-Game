@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Item{
 
     short id;
-    type itemType;
+    private type itemType;
 
 	public Item(short id, type itemType)
     {
@@ -20,11 +20,16 @@ public abstract class Item{
         Assist
     }
 
-    public abstract int[] ability1();
-    public abstract int[] ability2();
+    
+    public abstract void ability1(Entity target);
+    public abstract void ability2(Entity target);
 
     public abstract string getNameAbility1();
     public abstract string getNameAbility2();
+
+    public type GetItemType(){
+        return itemType;
+    }
 
     //public abstract int[] ChangeStats();
 

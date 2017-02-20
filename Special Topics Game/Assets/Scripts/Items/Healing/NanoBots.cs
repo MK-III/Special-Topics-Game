@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class NanoBots : Item {
 
-    public short id;
+    public static short id = 19;
     public Item.type type;
 
-    public NanoBots(short id, Item.type type) : base(id, type)
+    public NanoBots(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 18;
     }
 
-    //Heal
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        GlobalVariables.health += 60;
-        return null;
+
     }
 
     public override string getNameAbility1()
     {
-        return "NanoBots";
+        return "";
     }
 
-    //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
     {
         return null;
     }
+
 
 
 

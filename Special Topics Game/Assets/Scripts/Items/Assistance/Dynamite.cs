@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dynamite : Item {
+
     public int damage = 30;
     public int attack = 20;
     public int defense = 20;
-    public short id;
+    public static short id = 8;
     public Item.type type;
 
-    public Dynamite(short id, Item.type type) : base(id, type)
+    public Dynamite(Item.type type) : base(id, type)
     {
         this.type = type;
-        this.id = 1;
     }
 
     //Explode
-    public override int[] ability1()
+    public override void ability1(Entity target)
     {
-        int[] combatVals = new int[2];
-        //Attack/Cutting value
-        combatVals[0] = attack;
-        //Damage Value
-        combatVals[1] = Random.Range(damage - 3, damage + 3);
-        return combatVals;
+       
     }
 
     public override string getNameAbility1()
@@ -32,9 +27,9 @@ public class Dynamite : Item {
     }
 
     //No second ability
-    public override int[] ability2()
+    public override void ability2(Entity target)
     {
-        return null;
+
     }
 
     public override string getNameAbility2()
