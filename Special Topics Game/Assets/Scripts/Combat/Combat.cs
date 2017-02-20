@@ -21,7 +21,6 @@ public class Combat : MonoBehaviour {
     private Entity playerTarget;
     Enemy enemy;
 
-
     // Use this for initialization
     void Start () {
         combat = GetComponent<EnterCombat>();
