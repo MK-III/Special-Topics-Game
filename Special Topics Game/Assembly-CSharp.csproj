@@ -47,14 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Combat.cs" />
+     <Compile Include="Assets\Scripts\Combat\Combat.cs" />
+     <Compile Include="Assets\Scripts\Combat\Player.cs" />
+     <Compile Include="Assets\Scripts\Combat\ReturnToMain.cs" />
      <Compile Include="Assets\Scripts\Enemies\Alien.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyTriggered.cs" />
      <Compile Include="Assets\Scripts\EnterCombat.cs" />
+     <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
-     <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\Instantiaion.cs" />
      <Compile Include="Assets\Scripts\Items\Assistance\Dynamite.cs" />
      <Compile Include="Assets\Scripts\Items\Assistance\Flare Gun.cs" />
      <Compile Include="Assets\Scripts\Items\Assistance\Flash Bang.cs" />
@@ -67,6 +70,7 @@
      <Compile Include="Assets\Scripts\Items\Healing\Moonshine.cs" />
      <Compile Include="Assets\Scripts\Items\Healing\Morphine.cs" />
      <Compile Include="Assets\Scripts\Items\Healing\NanoBots.cs" />
+     <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Items\Weapons\Fists.cs" />
      <Compile Include="Assets\Scripts\Items\Weapons\Gattlin Gun.cs" />
      <Compile Include="Assets\Scripts\Items\Weapons\Laser Rifle.cs" />
@@ -77,9 +81,9 @@
      <Compile Include="Assets\Scripts\Items\Weapons\Saber.cs" />
      <Compile Include="Assets\Scripts\Jump.cs" />
      <Compile Include="Assets\Scripts\KillBox.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\ReturnToMain.cs" />
+     <Compile Include="Assets\Scripts\PlayerHandler.cs" />
      <Compile Include="Assets\Scripts\SmoothCamera.cs" />
+     <None Include="Assets\Scripts\Items\Item IDs.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

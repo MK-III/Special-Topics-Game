@@ -50,8 +50,6 @@ public class Combat : MonoBehaviour {
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
         enemyHealth.text = "Enemy Health: " + enemy.health.ToString();
-        Debug.Log(enemy.health);
-        Debug.Log(GlobalVariables.enemyName);
         if(Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
         if (Instantiaion.player.getHealth() <= 0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
