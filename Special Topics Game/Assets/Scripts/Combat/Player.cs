@@ -13,11 +13,17 @@ public class Player : Entity{
     private static ArrayList inv = new ArrayList();
 
     private int health = 100;
-    private int addDefense;
-    private int addAttack;
+    public int addDefense = 25;
+    public int addAttack = 0;
+    public int addDamage = 0;
 
     public Player(){
         eqp = new Item[] { null, null, null };
+    }
+
+    public override int getDefense()
+    {
+        return addDefense;
     }
 
     //Abilities
@@ -64,14 +70,6 @@ public class Player : Entity{
     //Statistics Methods
     public int getHealth(){
         return health;
-    }
-
-    public int getDefense(){
-        return addDefense;
-    }
-
-    public int getAttack(){
-        return addAttack;
     }
 
     public void setHealth(int val){

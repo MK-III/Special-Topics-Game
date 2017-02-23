@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class Fists : Item {
 
+    public int attack = 110;
     public int damage = 20;
-    public int attack = 0;
     public int defense = -10;
     public static short id = 0;
     public static Item.type type = type.Weapon;
 
     public Fists() : base(id, type)
     {
+
     }
 
     public override void ability1(Entity target)
     {
-        target.doDamage(15);
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack - 10, attack + 10);
+        combatVals[1] = Random.Range(damage - 5, damage + 5);
+        combatVals[2] = Random.Range(defense - 3, defense + 3);
+        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility1()
@@ -26,15 +31,15 @@ public class Fists : Item {
 
     public override void ability2(Entity target)
     {
-
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack - 130, attack - 120);
+        combatVals[1] = Random.Range(damage - 25, damage + 35);
+        combatVals[2] = Random.Range(defense - 15, defense - 5);
+        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility2()
     {
         return "Strangle";
     }
-
-
-
-
 }

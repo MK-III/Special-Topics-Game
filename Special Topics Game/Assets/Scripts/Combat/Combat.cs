@@ -91,15 +91,6 @@ public class Combat : MonoBehaviour {
         turnChanged = true;
     }
     
-    public int DamageCalc(int[] combatVals, int targetDef, bool guarenteed)
-    {
-        combatVals = new int[3];
-        if (Random.Range(0, 100) >= targetDef - (combatVals[0] + Instantiaion.player.getAttack()) || guarenteed)
-            return combatVals[1];
-        else
-            return 0;
-    }
-    
     public void ActivateWeaponAbility1(){
         Instantiaion.player.WeaponAbility1(playerTarget);
     }

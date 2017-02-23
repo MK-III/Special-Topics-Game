@@ -5,16 +5,14 @@ using UnityEngine;
 public class Morphine : Item {
 
     public static short id = 17;
-    public Item.type type;
+    public static Item.type type = type.Medical;
 
-    public Morphine(Item.type type) : base(id, type)
+    public Morphine() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
     {
-
     }
 
     public override string getNameAbility1()
@@ -31,9 +29,4 @@ public class Morphine : Item {
     {
         return null;
     }
-
-
-
-
 }
-

@@ -31,6 +31,14 @@ public abstract class Item{
         return itemType;
     }
 
-    //public abstract int[] ChangeStats();
+    public int DamageCalc(int[] combatVals, int targetDef)
+    {
+        combatVals = new int[3];
+        if (Random.Range(0, 100) >= targetDef - (combatVals[0] + Instantiaion.player.addAttack))
+            return combatVals[1];
+        else
+            return 0;
+    }
+
 
 }

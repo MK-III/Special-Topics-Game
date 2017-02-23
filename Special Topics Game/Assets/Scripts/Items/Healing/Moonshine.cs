@@ -5,16 +5,14 @@ using UnityEngine;
 public class Moonshine : Item {
 
     public static short id = 18;
-    public Item.type type;
+    public static Item.type type = type.Medical;
 
-    public Moonshine(Item.type type) : base(id, type)
+    public Moonshine() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
     {
-
     }
 
     public override string getNameAbility1()
@@ -31,9 +29,4 @@ public class Moonshine : Item {
     {
         return null;
     }
-
-
-
-
 }
-

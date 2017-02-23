@@ -5,21 +5,19 @@ using UnityEngine;
 public class AlienProbe : Item {
 
     public static short id = 16;
-    public Item.type type;
+    public static Item.type type = type.Medical;
 
-    public AlienProbe(Item.type type) : base(id, type)
+    public AlienProbe() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
     {
-
     }
 
     public override string getNameAbility1()
     {
-        return "Advanced First Aid Kit";
+        return "";
     }
 
     public override void ability2(Entity target)
@@ -31,7 +29,4 @@ public class AlienProbe : Item {
     {
         return null;
     }
-
-
-
 }

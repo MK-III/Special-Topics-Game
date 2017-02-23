@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,11 @@ public abstract class Enemy : Entity{
     public override abstract string getAbility2Name();
     public override abstract string getAbility3Name();
     public override abstract string getAbility4Name();
+
+    public override int getDefense()
+    {
+        return defense;
+    }
 
     public abstract int getUsedAbility();
 

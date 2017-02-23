@@ -16,4 +16,5 @@ public abstract class Entity {
 
     public abstract void doDamage(int damage);
 
+    public abstract int getDefense();
 }
