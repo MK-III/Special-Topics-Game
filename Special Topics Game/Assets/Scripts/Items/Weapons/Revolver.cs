@@ -8,11 +8,10 @@ public class Revolver : Item {
     public int damage = 30;
     public int defense = 0;
     public static short id = 1;
-    public Item.type type;
+    public static Item.type type = type.Weapon;
 
-    public Revolver(Item.type type) : base(id, type)
+    public Revolver() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
