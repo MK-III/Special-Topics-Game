@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public abstract class Enemy : Entity{
 
+    public Entity target = Instantiaion.player;
     public int health;
     public int defense;
     public int attack;
 
-    public Enemy(int health, int defense, int attack, Entity target)
+    public Enemy(int health, int defense, int attack)
     {
         this.health = health;
         this.defense = defense;
         this.attack = attack;
     }
 
-    public abstract void changeTarget(Entity newTarget);
+    public override void changeTarget(Entity newTarget)
+    {
+        this.target = newTarget;
+    }
 
     public override abstract void ability1(Entity target);
     public override abstract void ability2(Entity target);

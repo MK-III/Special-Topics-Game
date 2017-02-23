@@ -28,7 +28,7 @@ public class Combat : MonoBehaviour {
         switch (GlobalVariables.enemyName)
         {
             case "Alien":
-                enemy = new Alien(enemyTarget);
+                enemy = new Alien();
                 break;
             case "Zombie":
                 enemy = null;

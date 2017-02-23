@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public abstract class Item{
 
@@ -40,5 +42,40 @@ public abstract class Item{
             return 0;
     }
 
+    public void DamageOverTime(Entity target, int lowerDamage, int higherDamage, int turnCount)
+    {
+        int initialTurn = GlobalVariables.turn;
+        int initialTurnCounter = initialTurn;
+        while (GlobalVariables.turn - initialTurn > turnCount)
+        {
+            if (GlobalVariables.turn == initialTurnCounter)
+            {
+                target.doDamage(Random.Range(lowerDamage, higherDamage));
+                initialTurnCounter += 1;
+            }
+            else
+            {
+                target.doDamage(0);
+            }
+        }
+    }
 
-}
+    public void TurnStableLoop(int turnCount, Action ifTrue, Action onFinished)
+    {
+        int initialTurn = GlobalVariables.turn;
+        int initialTurnCounter = initialTurn;
+        while (GlobalVariables.turn - initialTurn > turnCount)
+        {
+            if (GlobalVariables.turn == initialTurnCounter)
+            {
+                ifTrue();
+            }
+            else
+            {
+                onFinished();
+            }
+        }
+    }
+
+
+    }
