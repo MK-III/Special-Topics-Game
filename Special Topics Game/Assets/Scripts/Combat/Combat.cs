@@ -53,6 +53,7 @@ public class Combat : MonoBehaviour {
         if(Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
         if (Instantiaion.player.getHealth() <= 0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
+            Instantiaion.player.setHealth(100);
         }
 
         if (enemy.health <= 0)

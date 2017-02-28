@@ -5,34 +5,41 @@ using UnityEngine;
 public class Revolver : Item {
 
     public int attack = 15;
-    public int damage = 30;
+    public int damage = 35;
     public int defense = 0;
     public static short id = 1;
-    public Item.type type;
+    public static Item.type type = type.Weapon;
 
-    public Revolver(Item.type type) : base(id, type)
+    public Revolver() : base(id, type)
     {
-        this.type = type;
+
     }
 
     public override void ability1(Entity target)
     {
-
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack-5, attack+5);
+        combatVals[1] = Random.Range(damage - 3, damage + 3);
+        combatVals[2] = Random.Range(defense - 5, defense + 5);
+        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "Shoot";
     }
 
     public override void ability2(Entity target)
     {
-
+        int[] combatVals = new int[3];
+        combatVals[0] = Random.Range(attack-25, attack-15);
+        combatVals[1] = Random.Range(damage-5, damage +15);
+        combatVals[2] = Random.Range(defense -15, defense -5);
+        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility2()
     {
-        return null;
+        return "Pistol Whip";
     }
-
 }

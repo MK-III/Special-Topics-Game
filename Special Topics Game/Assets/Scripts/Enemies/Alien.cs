@@ -10,8 +10,9 @@ public class Alien : Enemy {
     public static int health = 50;
     public static int defense = 20;
     public static int attack = 20;
+    public static int damage = 20;
 
-    public Alien() : base(health, defense, attack){
+    public Alien() : base(health, defense, attack, damage){
     }
 
     public override int getUsedAbility(){
@@ -19,7 +20,7 @@ public class Alien : Enemy {
     }
 
     public override void ability1(Entity target){
-        target.doDamage(20);
+        target.doDamage(damage);
     }
     public override void ability2(Entity target){
        

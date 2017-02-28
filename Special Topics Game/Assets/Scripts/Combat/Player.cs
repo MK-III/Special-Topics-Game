@@ -16,9 +16,37 @@ public class Player : Entity{
     public int addDefense = 25;
     public int addAttack = 0;
     public int addDamage = 0;
+    public readonly int DEFENSE = 25;
+    public readonly int ATTACK = 0;
+    public readonly int DAMAGE = 0;
 
     public Player(){
         eqp = new Item[] { null, null, null };
+    }
+
+    public override void setAttack(int value)
+    {
+        addAttack= value;
+    }
+
+    public override void setDefense(int value)
+    {
+        addDefense = value;
+    }
+
+    public override void setDamage(int value)
+    {
+        addDamage = value;
+    }
+
+    public override int getAttack()
+    {
+        return addAttack;
+    }
+
+    public override int getDamage()
+    {
+        return addDamage;
     }
 
     public override int getDefense()

@@ -10,12 +10,17 @@ public abstract class Enemy : Entity{
     public int health;
     public int defense;
     public int attack;
+    public int damage;
+    public readonly int DEFENSE;
+    public readonly int ATTACK;
+    public readonly int DAMAGE;
 
-    public Enemy(int health, int defense, int attack)
+    public Enemy(int health, int defense, int attack, int damage)
     {
         this.health = health;
         this.defense = defense;
         this.attack = attack;
+        this.damage = damage;
     }
 
     public override void changeTarget(Entity newTarget)
@@ -32,6 +37,31 @@ public abstract class Enemy : Entity{
     public override abstract string getAbility2Name();
     public override abstract string getAbility3Name();
     public override abstract string getAbility4Name();
+
+    public override void setAttack(int value)
+    {
+        attack = value;
+    }
+
+    public override void setDefense(int value)
+    {
+        defense = value;
+    }
+
+    public override void setDamage(int value)
+    {
+        damage = value;
+    }
+
+    public override int getAttack()
+    {
+        return attack;
+    }
+
+    public override int getDamage()
+    {
+        return damage;
+    }
 
     public override int getDefense()
     {

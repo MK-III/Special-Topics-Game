@@ -5,21 +5,20 @@ using UnityEngine;
 public class FirstAidKit : Item {
 
     public static short id = 13;
-    public Item.type type;
+    public static Item.type type = type.Medical;
 
-    public FirstAidKit(Item.type type) : base(id, type)
+    public FirstAidKit() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
     {
-
+        Instantiaion.player.setHealth(Instantiaion.player.getHealth() + 25);
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "First Aid Kit";
     }
 
     public override void ability2(Entity target)
@@ -31,8 +30,5 @@ public class FirstAidKit : Item {
     {
         return null;
     }
-
-
-
 }
 
