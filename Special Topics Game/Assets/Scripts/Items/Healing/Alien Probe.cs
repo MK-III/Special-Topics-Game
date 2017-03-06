@@ -17,11 +17,11 @@ public class AlienProbe : Item {
         TurnStableLoop(2,
             () =>
             {
-                Instantiaion.player.setAttack(Instantiaion.player.getAttack() + 50);
+				Instantiaion.player.setAttack(Instantiaion.player.getAttack() + 50);
             },
             () =>
             {
-                //Nothing happens; Loop ends
+				Instantiaion.player.setAttack(Instantiaion.player.ATTACK);
             });
     }
 

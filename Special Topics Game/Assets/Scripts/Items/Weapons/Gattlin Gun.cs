@@ -21,8 +21,8 @@ public class GattlinGun : Item {
         combatVals[0] = Random.Range(attack - 5, attack + 5);
         combatVals[1] = Random.Range(damage - 10, damage + 10);
         combatVals[2] = Random.Range(defense - 5, defense + 5);
-        if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.addAttack))
-            target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack()))
+			DamageCalc(combatVals, target);
         else
             target.doDamage(Random.Range(15,25));
 
@@ -39,7 +39,7 @@ public class GattlinGun : Item {
         combatVals[0] = Random.Range(attack -30, attack -20);
         combatVals[1] = Random.Range(damage +15, damage + 25);
         combatVals[2] = Random.Range(defense +5, defense +10);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility2()

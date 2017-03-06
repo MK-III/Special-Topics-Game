@@ -21,7 +21,7 @@ public class LaserRifle : Item {
         combatVals[0] = Random.Range(attack + 55, attack + 45);
         combatVals[1] = Random.Range(damage - 1, damage + 1);
         combatVals[2] = Random.Range(defense - 2, defense + 3);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility1()
@@ -35,7 +35,7 @@ public class LaserRifle : Item {
         combatVals[0] = Random.Range(attack - 88, attack - 82);
         combatVals[1] = Random.Range(damage - 28, damage + 128);
         combatVals[2] = Random.Range(defense - 2, defense + 3);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility2()

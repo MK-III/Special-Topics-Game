@@ -21,7 +21,7 @@ public class RepeatingRifle : Item {
         combatVals[0] = Random.Range(attack - 2, attack + 2);
         combatVals[1] = Random.Range(damage - 1, damage + 1);
         combatVals[2] = Random.Range(defense - 2, defense + 3);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility1()
@@ -35,7 +35,7 @@ public class RepeatingRifle : Item {
         combatVals[0] = Random.Range(attack - 23, attack - 17);
         combatVals[1] = Random.Range(damage +14, damage + 16);
         combatVals[2] = Random.Range(defense - 2, defense +3);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility2()

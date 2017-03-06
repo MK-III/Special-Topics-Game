@@ -21,7 +21,7 @@ public class PlasmaPistol : Item {
         combatVals[0] = Random.Range(attack - 5, attack + 5);
         combatVals[1] = Random.Range(damage - 3, damage + 3);
         combatVals[2] = Random.Range(defense - 5, defense + 5);
-        if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.addAttack))
+		if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack()))
         {
             target.doDamage(combatVals[1]);
             DamageOverTime(target, 3, 6, 3);
@@ -39,7 +39,7 @@ public class PlasmaPistol : Item {
         combatVals[0] = Random.Range(attack - 15, attack - 5);
         combatVals[1] = Random.Range(damage +10, damage + 20);
         combatVals[2] = Random.Range(defense - 15, defense - 5);
-        if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.addAttack))
+		if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack()))
         {
             target.doDamage(combatVals[1]);
             DamageOverTime(target, 1, 2, 5);

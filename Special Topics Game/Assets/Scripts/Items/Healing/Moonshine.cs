@@ -20,7 +20,7 @@ public class Moonshine : Item {
             },
             () =>
             {
-                //Nothing happens; Loop ends
+				Instantiaion.player.setAttack(Instantiaion.player.DAMAGE);
             });
     }
 

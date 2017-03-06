@@ -7,26 +7,37 @@ using UnityEngine.SceneManagement;
 public abstract class Enemy : Entity{
 
     public Entity target = Instantiaion.player;
-    public int health;
-    public int defense;
+	private int health;
+	public readonly int DEFENSE;
+	public readonly int ATTACK;
+	public readonly int DAMAGE;
+	public int defense;
     public int attack;
     public int damage;
-    public readonly int DEFENSE;
-    public readonly int ATTACK;
-    public readonly int DAMAGE;
 
-    public Enemy(int health, int defense, int attack, int damage)
+	public Enemy(int health, int DEFENSE, int ATTACK, int DAMAGE)
     {
+		this.defense = DEFENSE;
+		this.damage = DAMAGE;
+		this.attack = ATTACK;
         this.health = health;
-        this.defense = defense;
-        this.attack = attack;
-        this.damage = damage;
+		this.DEFENSE = DEFENSE;
+		this.ATTACK = ATTACK;
+		this.DAMAGE = DAMAGE;
     }
 
     public override void changeTarget(Entity newTarget)
     {
         this.target = newTarget;
     }
+
+	public int getHealth(){
+		return health;
+	}
+
+	public void setHealth(int val){
+		health = val;
+	}
 
     public override abstract void ability1(Entity target);
     public override abstract void ability2(Entity target);
@@ -71,9 +82,10 @@ public abstract class Enemy : Entity{
     public abstract int getUsedAbility();
 
     public override void doDamage(int damage)
-    {
-        health -= damage;
-    }
+	{
+		GlobalVariables.eDamageDone = damage;
+		health -= damage;
+	}
 
     public void killEnemy()
     {

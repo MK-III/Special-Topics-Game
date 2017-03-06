@@ -11,5 +11,7 @@ public class Instantiaion : MonoBehaviour {
     void Awake () {
         DontDestroyOnLoad(gameObject);
         player.EquipItem(new Revolver());
+		player.EquipItem (new FirstAidKit ());
+		player.EquipItem (new Dynamite ());
 	}
 }

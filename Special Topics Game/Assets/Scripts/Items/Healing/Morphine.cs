@@ -20,7 +20,7 @@ public class Morphine : Item {
             },
             () =>
             {
-                //Nothing happens; Loop ends
+				Instantiaion.player.setAttack(Instantiaion.player.DEFENSE);
             });
     }
 
