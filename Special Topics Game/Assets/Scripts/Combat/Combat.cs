@@ -19,6 +19,7 @@ public class Combat : MonoBehaviour {
     public Text enemyHealth;
 	public Text damageEnemy;
 	public Text damagePlayer;
+	public Text eHealth;
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
     Enemy enemy;
@@ -52,6 +53,7 @@ public class Combat : MonoBehaviour {
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
 		enemyHealth.text = "Enemy Health: yoyo dab";
+		eHealth.text = "Enemy Health: " + enemy.getHealth().ToString ();
 		Debug.Log (enemy.getHealth ());
 		damageEnemy.text = "- " + GlobalVariables.eDamageDone;
 		damagePlayer.text = "- " + GlobalVariables.pDamageDone;

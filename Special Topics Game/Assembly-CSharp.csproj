@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\EnemyTriggered.cs" />
      <Compile Include="Assets\Scripts\EnterCombat.cs" />
      <Compile Include="Assets\Scripts\Entity.cs" />
+     <Compile Include="Assets\Scripts\EquipItems.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\Instantiaion.cs" />

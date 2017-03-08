@@ -9,7 +9,7 @@ public class Player : Entity{
      * Slot 2 - Assist
      * Slot 3 - Medical*/
 
-    private Item[] eqp = new Item[3];
+    public Item[] eqp = new Item[3];
     private static ArrayList inv = new ArrayList();
 
     private int health = 100;
