@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class Dynamite : Item {
 
-    public int damage = 30;
-    public int attack = 20;
-    public int defense = 20;
+    public int damage = 55;
+    public int attack = 8999;
+    public int defense = 0;
     public static short id = 8;
-    public Item.type type;
+    public static Item.type type= type.Assist;
 
-    public Dynamite(Item.type type) : base(id, type)
+    public Dynamite() : base(id, type)
     {
-        this.type = type;
     }
-
-    //Explode
+		
     public override void ability1(Entity target)
     {
-       
+        int[] combatVals = new int[3];
+        combatVals[0] = attack;
+        combatVals[1] = Random.Range(damage - 15, damage + 15);
+        combatVals[2] = Random.Range(defense - 5, defense + 5);
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility1()
     {
         return "Explode";
     }
-
-    //No second ability
+		
     public override void ability2(Entity target)
     {
 

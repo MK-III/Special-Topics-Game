@@ -7,11 +7,12 @@ using System.Collections.Generic;
 
 public class Alien : Enemy {
 
-    public static int health = 50;
-    public static int defense = 20;
+	private static int health = 10000;
+    public static int defense = 100;
     public static int attack = 20;
+    public static int damage = 5;
 
-    public Alien() : base(health, defense, attack){
+    public Alien() : base(health, defense, attack, damage){
     }
 
     public override int getUsedAbility(){
@@ -19,7 +20,9 @@ public class Alien : Enemy {
     }
 
     public override void ability1(Entity target){
-        target.doDamage(20);
+		int[] combatVals = new int[3];
+		combatVals[1] = UnityEngine.Random.Range(damage - 5, damage + 5);
+		target.doDamage(combatVals[1]);
     }
     public override void ability2(Entity target){
        
@@ -43,6 +46,10 @@ public class Alien : Enemy {
     public override string getAbility4Name(){
         return null;
     }
+
+	public int getHealth(){
+		return health;
+	}
 
 
 }

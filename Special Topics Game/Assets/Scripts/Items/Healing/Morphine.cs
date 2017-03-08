@@ -13,11 +13,20 @@ public class Morphine : Item {
 
     public override void ability1(Entity target)
     {
+        TurnStableLoop(2,
+            () =>
+            {
+                Instantiaion.player.setDefense(Instantiaion.player.getDefense() + 50);
+            },
+            () =>
+            {
+				Instantiaion.player.setAttack(Instantiaion.player.DEFENSE);
+            });
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "Morphine";
     }
 
     public override void ability2(Entity target)

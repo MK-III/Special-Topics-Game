@@ -20,7 +20,7 @@ public class Saber : Item {
         combatVals[0] = Random.Range(attack + 75, attack + 85);
         combatVals[1] = Random.Range(damage - 7, damage + 7);
         combatVals[2] = Random.Range(defense - 5, defense + 5);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility1()
@@ -34,7 +34,7 @@ public class Saber : Item {
         combatVals[0] = Random.Range(attack -20 , attack -10);
         combatVals[1] = Random.Range(damage + 15, damage + 25);
         combatVals[2] = Random.Range(defense - 20, defense - 10);
-        target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+		DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility2()

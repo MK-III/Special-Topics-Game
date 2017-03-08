@@ -6,4 +6,6 @@ public static class GlobalVariables{
     public static bool inCombat = false;
     public static int turn;
     public static string enemyName;
+	public static int eDamageDone;
+	public static int pDamageDone;
 }

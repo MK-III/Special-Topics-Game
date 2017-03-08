@@ -13,17 +13,45 @@ public class Player : Entity{
     private static ArrayList inv = new ArrayList();
 
     private int health = 100;
-    public int addDefense = 25;
-    public int addAttack = 0;
-    public int addDamage = 0;
+	public readonly int DEFENSE = 25;
+	public readonly int ATTACK = 0;
+	public readonly int DAMAGE = 0;
+	public int Defense = 0;
+	public int Attack = 0;
+	public int Damage = 0;
 
     public Player(){
         eqp = new Item[] { null, null, null };
     }
 
+    public override void setAttack(int value)
+    {
+        Attack= value;
+    }
+
+    public override void setDefense(int value)
+    {
+        Defense = value;
+    }
+
+    public override void setDamage(int value)
+    {
+        Damage = value;
+    }
+
+    public override int getAttack()
+    {
+        return Attack;
+    }
+
+    public override int getDamage()
+    {
+        return Damage;
+    }
+
     public override int getDefense()
     {
-        return addDefense;
+        return Defense;
     }
 
     public override void changeTarget(Entity target)
@@ -82,6 +110,7 @@ public class Player : Entity{
     }
 
     public override void doDamage(int damage){
+		GlobalVariables.pDamageDone = damage;
         health -= damage;
     }
 
@@ -129,14 +158,14 @@ public class Player : Entity{
     //Equipment
     public void EquipItem(Item item){
         switch (item.GetItemType()){
-            case Item.type.Weapon:
+		case Item.type.Weapon:
                 EquipWeapon(item);
                 break;
             case Item.type.Assist:
-                EquipWeapon(item);
+                EquipAssist(item);
                 break;
             case Item.type.Medical:
-                EquipWeapon(item);
+                EquipMedical(item);
                 break;
         }
     }

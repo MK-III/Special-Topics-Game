@@ -13,11 +13,20 @@ public class Moonshine : Item {
 
     public override void ability1(Entity target)
     {
+        TurnStableLoop(2,
+            () =>
+            {
+                Instantiaion.player.setDamage(Instantiaion.player.getDamage() + 50);
+            },
+            () =>
+            {
+				Instantiaion.player.setAttack(Instantiaion.player.DAMAGE);
+            });
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "Moonshine";
     }
 
     public override void ability2(Entity target)

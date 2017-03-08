@@ -10,6 +10,8 @@ public class Instantiaion : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         DontDestroyOnLoad(gameObject);
-        player.EquipItem(new Fists());
+        player.EquipItem(new Revolver());
+		player.EquipItem (new FirstAidKit ());
+		player.EquipItem (new Dynamite ());
 	}
 }

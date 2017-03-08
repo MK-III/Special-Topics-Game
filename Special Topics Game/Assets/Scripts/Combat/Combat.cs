@@ -17,6 +17,8 @@ public class Combat : MonoBehaviour {
     public Text enemyName;
     public Text TurnCount;
     public Text enemyHealth;
+	public Text damageEnemy;
+	public Text damagePlayer;
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
     Enemy enemy;
@@ -27,8 +29,8 @@ public class Combat : MonoBehaviour {
         GlobalVariables.turn = 0;
         switch (GlobalVariables.enemyName)
         {
-            case "Alien":
-                enemy = new Alien();
+		case "Alien":
+			enemy = new Alien();
                 break;
             case "Zombie":
                 enemy = null;
@@ -49,14 +51,18 @@ public class Combat : MonoBehaviour {
         assistAbility.text = Instantiaion.player.GetNameAssistAbility();
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
-        enemyHealth.text = "Enemy Health: " + enemy.health.ToString();
+		enemyHealth.text = "Enemy Health: yoyo dab";
+		Debug.Log (enemy.getHealth ());
+		damageEnemy.text = "- " + GlobalVariables.eDamageDone;
+		damagePlayer.text = "- " + GlobalVariables.pDamageDone;
         if(Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
         if (Instantiaion.player.getHealth() <= 0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
+            Instantiaion.player.setHealth(100);
         }
 
-        if (enemy.health <= 0)
-            enemy.killEnemy();
+		if (this.enemy.getHealth() <= 0)
+            this.enemy.killEnemy();
 
         if (turnChanged){
             switch (enemy.getUsedAbility()){

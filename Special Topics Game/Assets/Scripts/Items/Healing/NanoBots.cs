@@ -5,21 +5,28 @@ using UnityEngine;
 public class NanoBots : Item {
 
     public static short id = 19;
-    public Item.type type;
+    public static Item.type type = type.Medical;
 
-    public NanoBots(Item.type type) : base(id, type)
+    public NanoBots() : base(id, type)
     {
-        this.type = type;
     }
 
     public override void ability1(Entity target)
     {
-
+        TurnStableLoop(2,
+            () =>
+            {
+                Instantiaion.player.setHealth(Instantiaion.player.getHealth() + 50);
+            },
+            () =>
+            {
+                //Nothing happens; Loop ends
+            });
     }
 
     public override string getNameAbility1()
     {
-        return "";
+        return "NanoBots";
     }
 
     public override void ability2(Entity target)
@@ -31,8 +38,4 @@ public class NanoBots : Item {
     {
         return null;
     }
-
-
-
-
 }
