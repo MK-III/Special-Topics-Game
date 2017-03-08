@@ -1,20 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class CameraScript : MonoBehaviour
+{
 
-    public GameObject player;
+    public GameObject target;
 
-    private Vector3 offset;
+    // Use this for initialization
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player");
+    }
 
-	// Use this for initialization
-	void Start () {
-        offset = transform.position - player.transform.position;
-	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
-        transform.position = player.transform.position + offset;
-	}
+    void Update()
+    {
+        Vector3 tempPos = target.transform.position;
+        tempPos.x = tempPos.x + 0.0f;
+        tempPos.y = tempPos.y + 0.0f;
+        transform.position = tempPos;
+        transform.LookAt(target.transform.position);
+    }
 }

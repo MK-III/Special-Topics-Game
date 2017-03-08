@@ -1,0 +1,105 @@
+﻿Merge remote-tracking branch 'origin/item-branch' into item-branch
+
+# Conflicts:
+#	Special Topics Game/.vs/Special Topics Game/v14/.suo
+#	Special Topics Game/Assets/Scenes/combat.unity
+#	Special Topics Game/Assets/Scripts/Instantiaion.cs
+#	Special Topics Game/Assets/Scripts/Items/Item.cs
+#	Special Topics Game/Assets/Scripts/Items/Weapons/Fists.cs
+#	Special Topics Game/Assets/Scripts/Items/Weapons/Revolver.cs
+#	Special Topics Game/Library/CurrentLayout.dwlt
+#	Special Topics Game/Library/ScriptAssemblies/Assembly-CSharp.dll
+#	Special Topics Game/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	Special Topics Game/Library/assetDatabase3
+#	Special Topics Game/Library/metadata/1b/1b9b29f9143cf844297f24b76f22dbd3
+#	Special Topics Game/Library/metadata/26/26315e8e4de203f43b20f81d7b847b40
+#	Special Topics Game/Library/metadata/3a/3a83051d984247c49801b3e77c4b0fbc
+#	Special Topics Game/Library/metadata/55/55f59636002bfb347ab571a8c3977db1
+#	Special Topics Game/Library/metadata/9d/9da6bec2b59a3ab41b47cc846a9a875f
+#	Special Topics Game/Library/metadata/9e/9e2c809d5ba9c8840ae7692b8289080c
+#	Special Topics Game/Library/metadata/d5/d522257659c2cc64894b7cd52bcc0283
+#	Special Topics Game/Library/metadata/dc/dc9ce5fa75676224cb9bc90ee2b891dd
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch item-branch
+# Your branch and 'origin/item-branch' have diverged,
+# and have 2 and 2 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Special Topics Game/.vs/Special Topics Game/v14/.suo
+#	new file:   Special Topics Game/Assets/Scenes/menu.unity
+#	new file:   Special Topics Game/Assets/Scenes/menu.unity.meta
+#	modified:   Special Topics Game/Assets/Scripts/Combat/Combat.cs
+#	modified:   Special Topics Game/Assets/Scripts/Combat/Player.cs
+#	modified:   Special Topics Game/Assets/Scripts/Enemies/Alien.cs
+#	modified:   Special Topics Game/Assets/Scripts/Enemies/Enemy.cs
+#	modified:   Special Topics Game/Assets/Scripts/Entity.cs
+#	modified:   Special Topics Game/Assets/Scripts/GlobalVariables.cs
+#	modified:   Special Topics Game/Assets/Scripts/Instantiaion.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Assistance/Dynamite.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Assistance/Flash Bang.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Assistance/Shield.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Assistance/Smoke Bomb.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/Adv First Aid Kit.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/Alien Probe.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/First Aid Kit.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/Moonshine.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/Morphine.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Healing/NanoBots.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Item.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Fists.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Gattlin Gun.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Laser Rifle.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Lazer Saber.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Plasma Pistol.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Repeating Rifle.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Revolver.cs
+#	modified:   Special Topics Game/Assets/Scripts/Items/Weapons/Saber.cs
+#	modified:   Special Topics Game/Library/CurrentLayout.dwlt
+#	new file:   Special Topics Game/Library/CurrentMaximizeLayout.dwlt
+#	modified:   Special Topics Game/Library/ScriptAssemblies/Assembly-CSharp.dll
+#	modified:   Special Topics Game/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	new file:   Special Topics Game/Library/ShaderCache/9/95b5768da4155d4ba208f1d145e6d48c.bin
+#	new file:   Special Topics Game/Library/ShaderCache/b/b87d7c9518aa826e65f9bb44ffecaaed.bin
+#	modified:   Special Topics Game/Library/assetDatabase3
+#	modified:   Special Topics Game/Library/metadata/02/02ded82c46e1f8e49884c940bb4b2008
+#	modified:   Special Topics Game/Library/metadata/06/0622ed4a4c36d7744a81c6ea0673a6fc
+#	modified:   Special Topics Game/Library/metadata/0b/0b941aaa392c7ad42933fe39deb3b543
+#	modified:   Special Topics Game/Library/metadata/18/18730340e481e0141be533b13a75ce80
+#	modified:   Special Topics Game/Library/metadata/1b/1b9b29f9143cf844297f24b76f22dbd3
+#	new file:   Special Topics Game/Library/metadata/1c/1cf037430d5a9e34d8267c3359f8fa38
+#	new file:   Special Topics Game/Library/metadata/1c/1cf037430d5a9e34d8267c3359f8fa38.info
+#	modified:   Special Topics Game/Library/metadata/21/21e76dd3171ca634192f886b8178e6fd
+#	modified:   Special Topics Game/Library/metadata/22/222d5650a110ba7438fa7b9e4f35b958
+#	modified:   Special Topics Game/Library/metadata/22/22f61e4c4e3f718449d1807df0860b3b
+#	modified:   Special Topics Game/Library/metadata/26/26315e8e4de203f43b20f81d7b847b40
+#	modified:   Special Topics Game/Library/metadata/2c/2c51802df187a0845802d61c5fe15453
+#	modified:   Special Topics Game/Library/metadata/3a/3a83051d984247c49801b3e77c4b0fbc
+#	modified:   Special Topics Game/Library/metadata/48/487a4358ccc17564895a37216e96d7e4
+#	modified:   Special Topics Game/Library/metadata/4f/4f42a8d585bcd314ebbbb69f97108e71
+#	modified:   Special Topics Game/Library/metadata/54/541f7043197379e41ab6f52dd2abe04e
+#	modified:   Special Topics Game/Library/metadata/55/55f59636002bfb347ab571a8c3977db1
+#	modified:   Special Topics Game/Library/metadata/60/6021058f2741ee242b4cca4ffe7f4904
+#	modified:   Special Topics Game/Library/metadata/7e/7e0bdccc1d3461f44a077633263baea9
+#	modified:   Special Topics Game/Library/metadata/8b/8bbae6a35359d824e80d19beb20d151c
+#	modified:   Special Topics Game/Library/metadata/9c/9cbdbbcd2a3043e439074d0a7f8afccb
+#	modified:   Special Topics Game/Library/metadata/9d/9da6bec2b59a3ab41b47cc846a9a875f
+#	modified:   Special Topics Game/Library/metadata/9e/9e2c809d5ba9c8840ae7692b8289080c
+#	modified:   Special Topics Game/Library/metadata/a2/a264939ac2457d941a8536c21a4c775a
+#	modified:   Special Topics Game/Library/metadata/ca/cac16428e743a394f886c7c0b7bb8918
+#	modified:   Special Topics Game/Library/metadata/d5/d522257659c2cc64894b7cd52bcc0283
+#	modified:   Special Topics Game/Library/metadata/d5/d539f3b2d1f650546bd04a1aba130c26
+#	modified:   Special Topics Game/Library/metadata/dc/dc9ce5fa75676224cb9bc90ee2b891dd
+#	modified:   Special Topics Game/Special Topics Game.userprefs
+#
+

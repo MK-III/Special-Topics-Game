@@ -12,7 +12,6 @@ public class Revolver : Item {
 
     public Revolver() : base(id, type)
     {
-
     }
 
     public override void ability1(Entity target)

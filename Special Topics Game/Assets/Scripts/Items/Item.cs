@@ -35,9 +35,11 @@ public abstract class Item{
 
 	public void DamageCalc(int[] combatVals, Entity target)
 	{
-		if (UnityEngine.Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack() + Instantiaion.player.ATTACK))
-			target.doDamage(combatVals[1]);
-	}
+        if (UnityEngine.Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack() + Instantiaion.player.ATTACK))
+            target.doDamage(combatVals[1]);
+        else
+            target.doDamage(0);  
+        }
 
     public void DamageOverTime(Entity target, int lowerDamage, int higherDamage, int turnCount)
     {

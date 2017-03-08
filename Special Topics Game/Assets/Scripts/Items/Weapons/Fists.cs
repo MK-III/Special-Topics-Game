@@ -21,7 +21,8 @@ public class Fists : Item {
         combatVals[0] = Random.Range(attack - 10, attack + 10);
         combatVals[1] = Random.Range(damage - 5, damage + 5);
         combatVals[2] = Random.Range(defense - 3, defense + 3);
-		DamageCalc(combatVals, target);
+        //target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
+        DamageCalc(combatVals, target);
     }
 
     public override string getNameAbility1()
