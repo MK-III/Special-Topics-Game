@@ -10,17 +10,8 @@ public class Alien : Enemy {
     public static int health = 50;
     public static int defense = 20;
     public static int attack = 20;
-    private Entity target;
-    private Entity TARGET;
 
-    public Alien(Entity target) : base(health, defense, attack, target){
-        this.target = target;
-        this.TARGET = target;
-    }
-
-    public override void changeTarget(Entity newTarget)
-    {
-        this.target = newTarget;
+    public Alien() : base(health, defense, attack){
     }
 
     public override int getUsedAbility(){

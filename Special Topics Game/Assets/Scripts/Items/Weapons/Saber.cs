@@ -17,29 +17,29 @@ public class Saber : Item {
     public override void ability1(Entity target)
     {
         int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack - 5, attack + 5);
-        combatVals[1] = Random.Range(damage - 3, damage + 3);
+        combatVals[0] = Random.Range(attack + 75, attack + 85);
+        combatVals[1] = Random.Range(damage - 7, damage + 7);
         combatVals[2] = Random.Range(defense - 5, defense + 5);
         target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility1()
     {
-        return "Shoot";
+        return "Slash";
     }
 
     public override void ability2(Entity target)
     {
         int[] combatVals = new int[3];
-        combatVals[0] = Random.Range(attack - 25, attack - 15);
-        combatVals[1] = Random.Range(damage - 5, damage + 15);
-        combatVals[2] = Random.Range(defense - 15, defense - 5);
+        combatVals[0] = Random.Range(attack -20 , attack -10);
+        combatVals[1] = Random.Range(damage + 15, damage + 25);
+        combatVals[2] = Random.Range(defense - 20, defense - 10);
         target.doDamage(base.DamageCalc(combatVals, target.getDefense()));
     }
 
     public override string getNameAbility2()
     {
-        return "Pistol Whip";
+        return "Charge";
     }
 }
 

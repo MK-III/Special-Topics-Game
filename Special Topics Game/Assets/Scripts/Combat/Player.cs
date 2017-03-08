@@ -26,6 +26,11 @@ public class Player : Entity{
         return addDefense;
     }
 
+    public override void changeTarget(Entity target)
+    {
+        throw new NotImplementedException();
+    }
+
     //Abilities
     public void WeaponAbility1(Entity target){
         eqp[0].ability1(target);
