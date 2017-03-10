@@ -8,9 +8,10 @@ public class Dynamite : Item {
     public int attack = 8999;
     public int defense = 0;
     public static short id = 8;
+    public static string name = "Dynamite";
     public static Item.type type= type.Assist;
 
-    public Dynamite() : base(id, type)
+    public Dynamite() : base(id, type, name)
     {
     }
 		

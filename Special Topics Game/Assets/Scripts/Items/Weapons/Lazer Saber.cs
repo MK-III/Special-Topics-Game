@@ -8,9 +8,10 @@ public class LazerSaber : Item {
     public int attack = 90;
     public int defense = -15;
     public static short id = 4;
+    public static string name = "Lazer Saber";
     public static Item.type type = type.Weapon;
 
-    public LazerSaber() : base(id, type)
+    public LazerSaber() : base(id, type, name)
     {
 
     }

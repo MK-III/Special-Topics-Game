@@ -8,9 +8,10 @@ public class SmokeBomb : Item {
     public int attack = -40;
     public int defense = 0;
     public static short id = 13;
+    public static string name = "Smoke Bomb";
     public static Item.type type = type.Assist;
 
-    public SmokeBomb() : base(id, type)
+    public SmokeBomb() : base(id, type, name)
     {
     }
 

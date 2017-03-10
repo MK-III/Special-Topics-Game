@@ -8,9 +8,10 @@ public class FlashBang : Item {
 	public int attack = 0;
 	public int defense = -40;
 	public static short id = 10;
-	public static Item.type type = type.Assist;
+    public static string name = "Flash Bang";
+    public static Item.type type = type.Assist;
 
-	public FlashBang() : base(id, type)
+	public FlashBang() : base(id, type, name)
 	{
 	}
 

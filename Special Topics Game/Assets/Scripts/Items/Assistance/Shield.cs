@@ -8,9 +8,11 @@ public class Sheild : Item {
 	public int attack = 0;
 	public int defense = 500;
 	public static short id = 12;
-	public static Item.type type = type.Assist;
+    public static string name = "Shield";
 
-	public Sheild() : base(id, type)
+    public static Item.type type = type.Assist;
+
+	public Sheild() : base(id, type, name)
 	{
 	}
 

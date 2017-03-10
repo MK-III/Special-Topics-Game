@@ -7,9 +7,10 @@ public class Saber : Item {
     public int attack = 0;
     public int defense = -15;
     public static short id = 7;
+    public static string name = "Saber";
     public static Item.type type = type.Weapon;
 
-    public Saber() : base(id, type)
+    public Saber() : base(id, type, name)
     {
 
     }

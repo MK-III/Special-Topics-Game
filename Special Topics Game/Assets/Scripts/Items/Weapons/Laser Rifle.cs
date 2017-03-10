@@ -8,9 +8,10 @@ public class LaserRifle : Item {
     public int attack = 0;
     public int defense = 0;
     public static short id = 3;
+    public static string name = "Laser Rifle";
     public static Item.type type = type.Weapon;
 
-    public LaserRifle() : base(id, type)
+    public LaserRifle() : base(id, type, name)
     {
 
     }

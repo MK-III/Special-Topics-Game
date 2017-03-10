@@ -5,9 +5,10 @@ using UnityEngine;
 public class Moonshine : Item {
 
     public static short id = 18;
+    public static string name = "Moonshine";
     public static Item.type type = type.Medical;
 
-    public Moonshine() : base(id, type)
+    public Moonshine() : base(id, type, name)
     {
     }
 

@@ -8,9 +8,10 @@ public class RepeatingRifle : Item {
     public int damage = 40;
     public int defense = 0;
     public static short id = 6;
+    public static string name = "Repeating Rifle";
     public static Item.type type = type.Weapon;
 
-    public RepeatingRifle() : base(id, type)
+    public RepeatingRifle() : base(id, type, name)
     {
 
     }

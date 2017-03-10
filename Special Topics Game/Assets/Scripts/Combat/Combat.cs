@@ -52,7 +52,7 @@ public class Combat : MonoBehaviour {
         assistAbility.text = Instantiaion.player.GetNameAssistAbility();
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
-		enemyHealth.text = "Enemy Health: yoyo dab";
+		enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
 		eHealth.text = "Enemy Health: " + enemy.getHealth().ToString ();
 		Debug.Log (enemy.getHealth ());
 		damageEnemy.text = "- " + GlobalVariables.eDamageDone;

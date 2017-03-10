@@ -8,13 +8,14 @@ public class Fists : Item {
     public int damage = 20;
     public int defense = -10;
     public static short id = 0;
+	public static string name = "Fists";
     public static Item.type type = type.Weapon;
 
-    public Fists() : base(id, type)
+    public Fists() : base(id, type, name)
     {
 
     }
-
+		
     public override void ability1(Entity target)
     {
         int[] combatVals = new int[3];

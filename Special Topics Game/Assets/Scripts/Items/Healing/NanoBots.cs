@@ -5,9 +5,10 @@ using UnityEngine;
 public class NanoBots : Item {
 
     public static short id = 19;
+    public static string name = "NanoBots";
     public static Item.type type = type.Medical;
 
-    public NanoBots() : base(id, type)
+    public NanoBots() : base(id, type, name)
     {
     }
 

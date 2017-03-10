@@ -8,9 +8,10 @@ public class PlasmaPistol : Item {
     public int damage = 35;
     public int defense = 0;
     public static short id = 2;
+    public static string name = "Plasma Pistol";
     public static Item.type type = type.Weapon;
 
-    public PlasmaPistol() : base(id, type)
+    public PlasmaPistol() : base(id, type, name)
     {
 
     }

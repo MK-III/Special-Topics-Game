@@ -14,7 +14,7 @@ public class EquipItems : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		eqpdWeapon.text = Instantiaion.player.eqp[0];
+        eqpdWeapon.text = "Weapon";
 	}
 
 	public void ActiveItem()

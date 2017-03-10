@@ -5,9 +5,10 @@ using UnityEngine;
 public class FirstAidKit : Item {
 
     public static short id = 13;
+    public static string name = "First Aid Kit";
     public static Item.type type = type.Medical;
 
-    public FirstAidKit() : base(id, type)
+    public FirstAidKit() : base(id, type, name)
     {
     }
 

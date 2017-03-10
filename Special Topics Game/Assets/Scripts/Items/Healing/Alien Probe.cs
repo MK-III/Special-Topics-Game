@@ -5,9 +5,10 @@ using UnityEngine;
 public class AlienProbe : Item {
 
     public static short id = 16;
+    public static string name = "Alien Probe";
     public static Item.type type = type.Medical;
 
-    public AlienProbe() : base(id, type)
+    public AlienProbe() : base(id, type, name)
     {
   
     }

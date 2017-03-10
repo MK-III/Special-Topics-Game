@@ -8,11 +8,13 @@ public abstract class Item{
 
     short id;
     private type itemType;
+	public string name;
 
-	public Item(short id, type itemType)
+	public Item(short id, type itemType, string name)
     {
         this.id = id;
         this.itemType = itemType;
+		this.name = name;
     }
 
     public enum type
@@ -21,8 +23,7 @@ public abstract class Item{
         Medical,
         Assist
     }
-
-    
+		
     public abstract void ability1(Entity target);
     public abstract void ability2(Entity target);
 
