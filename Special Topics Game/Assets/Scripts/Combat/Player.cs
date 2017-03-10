@@ -21,7 +21,7 @@ public class Player : Entity{
 	public int Damage = 0;
 
     public Player(){
-        eqp = new Item[] { null, null, null };
+        eqp = new Item[] { new Fists(), null, null };
     }
 
     public override void setAttack(int value)
