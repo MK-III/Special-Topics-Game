@@ -32,7 +32,19 @@ public class PlayerHandler : MonoBehaviour {
             player.velocity = new Vector2(-maxSpeed, player.velocity.y);
 
         player.velocity = dampSpeed(h);
-        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (GlobalVariables.inInventory == false)
+            {
+                SceneManager.LoadSceneAsync("Scenes/Equip Items", LoadSceneMode.Additive);
+                GlobalVariables.inInventory = true;
+            }
+            else
+            {
+                SceneManager.UnloadSceneAsync("Scenes/Equip Items");
+                GlobalVariables.inInventory = false;
+            }
+        }
     }
 
     private Vector2 dampSpeed(float h){

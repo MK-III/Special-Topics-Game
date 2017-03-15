@@ -19,7 +19,6 @@ public class Combat : MonoBehaviour {
     public Text enemyHealth;
 	public Text damageEnemy;
 	public Text damagePlayer;
-	public Text eHealth;
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
     Enemy enemy;
@@ -53,16 +52,16 @@ public class Combat : MonoBehaviour {
         medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
         enemyName.text = GlobalVariables.enemyName;
 		enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
-		eHealth.text = "Enemy Health: " + enemy.getHealth().ToString ();
-		Debug.Log (enemy.getHealth ());
-		damageEnemy.text = "- " + GlobalVariables.eDamageDone;
-		damagePlayer.text = "- " + GlobalVariables.pDamageDone;
-        if(Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
+        //damageEnemy.text = "- " + GlobalVariables.eDamageDone;
+        //damagePlayer.text = "- " + GlobalVariables.pDamageDone;
+
+        if (Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); } //Bound Health
+
         if (Instantiaion.player.getHealth() <= 0){
             SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
             Instantiaion.player.setHealth(100);
         }
-
+        
 		if (this.enemy.getHealth() <= 0)
             this.enemy.killEnemy();
 

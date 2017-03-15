@@ -12,11 +12,11 @@ public class Player : Entity{
     public Item[] eqp = new Item[3];
     private static ArrayList inv = new ArrayList();
 
-    private int health = 100;
 	public readonly int DEFENSE = 25;
 	public readonly int ATTACK = 0;
 	public readonly int DAMAGE = 0;
-	public int Defense = 0;
+    private int health = 100;
+    public int Defense = 0;
 	public int Attack = 0;
 	public int Damage = 0;
 
