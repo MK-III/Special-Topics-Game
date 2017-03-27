@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class Combat : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class Combat : MonoBehaviour {
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
     Enemy enemy;
+
+    private Stopwatch stopwatch = Stopwatch.StartNew();
 
     // Use this for initialization
     void Start () {
@@ -44,45 +47,59 @@ public class Combat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        health.text = "Health: " + Instantiaion.player.getHealth().ToString();
-        TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
-        ability1.text = Instantiaion.player.GetNameWeaponAbility1();
-        ability2.text = Instantiaion.player.GetNameWeaponAbility2();
-        assistAbility.text = Instantiaion.player.GetNameAssistAbility();
-        medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
-        enemyName.text = GlobalVariables.enemyName;
-		enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
-        //damageEnemy.text = "- " + GlobalVariables.eDamageDone;
-        //damagePlayer.text = "- " + GlobalVariables.pDamageDone;
+            health.text = "Health: " + Instantiaion.player.getHealth().ToString();
+            TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
+            ability1.text = Instantiaion.player.GetNameWeaponAbility1();
+            ability2.text = Instantiaion.player.GetNameWeaponAbility2();
+            assistAbility.text = Instantiaion.player.GetNameAssistAbility();
+            medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
+            enemyName.text = GlobalVariables.enemyName;
+            enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
+            damageEnemy.text = "- " + GlobalVariables.eDamageDone;
+            damagePlayer.text = "- " + GlobalVariables.pDamageDone;
 
-        if (Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); } //Bound Health
+            if (Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); } //Bound Health
 
-        if (Instantiaion.player.getHealth() <= 0){
-            SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
-            Instantiaion.player.setHealth(100);
-        }
-        
-		if (this.enemy.getHealth() <= 0)
-            this.enemy.killEnemy();
-
-        if (turnChanged){
-            switch (enemy.getUsedAbility()){
-                case 1:
-                    enemy.ability1(enemyTarget);
-                    break;
-                case 2:
-                    enemy.ability2(enemyTarget);
-                    break;
-                case 3:
-                    enemy.ability3(enemyTarget);
-                    break;
-                case 4:
-                    enemy.ability4(enemyTarget);
-                    break;
+            if (Instantiaion.player.getHealth() <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
+                Instantiaion.player.setHealth(100);
             }
-        }
 
-        turnChanged = false;
+            if (this.enemy.getHealth() <= 0)
+                this.enemy.killEnemy();
+
+            if (turnChanged)
+            {
+            while (true)
+            {
+                UnityEngine.Debug.Log("WAITING");
+                if (stopwatch.ElapsedMilliseconds >= 2000)
+                {
+                    UnityEngine.Debug.Log("break");
+                    break;
+                }
+            }
+            switch (enemy.getUsedAbility())
+                {
+                    case 1:
+                        enemy.ability1(enemyTarget);
+                        break;
+                    case 2:
+                        enemy.ability2(enemyTarget);
+                        break;
+                    case 3:
+                        enemy.ability3(enemyTarget);
+                        break;
+                    case 4:
+                        enemy.ability4(enemyTarget);
+                        break;
+                }
+            }
+
+            turnChanged = false;
+
+        
     }
 
     

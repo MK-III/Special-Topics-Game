@@ -92,4 +92,46 @@ public abstract class Enemy : Entity{
         GlobalVariables.inCombat = false;
         SceneManager.UnloadSceneAsync("Scenes/combat");
     }
+    public void DamageCalc(int[] combatVals, Entity target)
+    {
+        if (UnityEngine.Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack() + Instantiaion.player.ATTACK))
+            target.doDamage(combatVals[1]);
+        else
+            target.doDamage(0);
+    }
+
+    public void DamageOverTime(Entity target, int lowerDamage, int higherDamage, int turnCount)
+    {
+        int initialTurn = GlobalVariables.turn;
+        int initialTurnCounter = initialTurn;
+        while (GlobalVariables.turn - initialTurn > turnCount)
+        {
+            if (GlobalVariables.turn == initialTurnCounter)
+            {
+                target.doDamage(UnityEngine.Random.Range(lowerDamage, higherDamage));
+                initialTurnCounter += 1;
+            }
+            else
+            {
+                target.doDamage(0);
+            }
+        }
+    }
+
+    public void TurnStableLoop(int turnCount, Action ifTrue, Action onFinished)
+    {
+        int initialTurn = GlobalVariables.turn;
+        int initialTurnCounter = initialTurn;
+        while (GlobalVariables.turn - initialTurn > turnCount)
+        {
+            if (GlobalVariables.turn == initialTurnCounter)
+            {
+                ifTrue();
+            }
+            else
+            {
+                onFinished();
+            }
+        }
+    }
 }
