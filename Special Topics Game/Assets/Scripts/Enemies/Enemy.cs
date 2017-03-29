@@ -86,7 +86,11 @@ public abstract class Enemy : Entity{
 		GlobalVariables.eDamageDone = damage;
 		health -= damage;
 	}
-
+    public override void heal(int hp)
+    {
+        GlobalVariables.eHealed = hp;
+        health += hp;
+    }
     public void killEnemy()
     {
         GlobalVariables.inCombat = false;

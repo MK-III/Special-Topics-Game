@@ -14,7 +14,7 @@ public class FirstAidKit : Item {
 
     public override void ability1(Entity target)
     {
-        Instantiaion.player.setHealth(Instantiaion.player.getHealth() + 25);
+        Instantiaion.player.heal(25);
     }
 
     public override string getNameAbility1()

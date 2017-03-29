@@ -22,9 +22,7 @@ public class PlayerHandler : MonoBehaviour {
 
     private void FixedUpdate(){
         float h = Input.GetAxisRaw("Horizontal");
-
         player.AddForce(Vector2.right * h * ((Input.GetKey(KeyCode.LeftShift)) ? runSpeed : walkSpeed));
-
         //Slow down player
         if (player.velocity.x > maxSpeed)
             player.velocity = new Vector2(maxSpeed, player.velocity.y);

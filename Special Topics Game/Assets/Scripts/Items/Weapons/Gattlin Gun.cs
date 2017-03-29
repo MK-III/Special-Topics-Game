@@ -23,7 +23,7 @@ public class GattlinGun : Item {
         combatVals[1] = Random.Range(damage - 10, damage + 10);
         combatVals[2] = Random.Range(defense - 5, defense + 5);
 		if (Random.Range(0, 100) >= target.getDefense() - (combatVals[0] + Instantiaion.player.getAttack()))
-			DamageCalc(combatVals, target);
+			target.doDamage(combatVals[1]);
         else
             target.doDamage(Random.Range(15,25));
 
