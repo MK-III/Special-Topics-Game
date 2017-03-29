@@ -17,7 +17,7 @@ public class NanoBots : Item {
         TurnStableLoop(2,
             () =>
             {
-                Instantiaion.player.setHealth(Instantiaion.player.getHealth() + 50);
+                Instantiaion.player.heal(50);
             },
             () =>
             {

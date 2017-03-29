@@ -19,6 +19,7 @@ public abstract class Entity {
     public abstract string getAbility4Name();
 
     public abstract void doDamage(int damage);
+    public abstract void heal(int hp);
     public abstract void changeTarget(Entity target);
 
     public abstract int getDefense();

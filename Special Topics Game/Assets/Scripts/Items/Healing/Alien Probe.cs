@@ -28,7 +28,7 @@ public class AlienProbe : Item {
 
     public override string getNameAbility1()
     {
-        return "ALien Probe";
+        return "Alien Probe";
     }
 
     public override void ability2(Entity target)

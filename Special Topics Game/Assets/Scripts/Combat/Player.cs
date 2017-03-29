@@ -113,7 +113,11 @@ public class Player : Entity{
 		GlobalVariables.pDamageDone = damage;
         health -= damage;
     }
-
+    public override void heal(int hp)
+    {
+        GlobalVariables.pHealed = hp;
+        health += hp;
+    }
     //Overriden entity methods
     public override void ability1(Entity target)
     {
