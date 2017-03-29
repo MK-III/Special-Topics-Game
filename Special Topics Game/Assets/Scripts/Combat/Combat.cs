@@ -62,7 +62,6 @@ public class Combat : MonoBehaviour {
 
     IEnumerator Wait(int sec, Action before, Action after)
     {
-        UnityEngine.Debug.Log("Before Waiting "+sec+" seconds");
         button1.interactable = false;
         button2.interactable = false;
         button3.interactable = false;
@@ -74,11 +73,9 @@ public class Combat : MonoBehaviour {
         button2.interactable = true;
         button3.interactable = true;
         button4.interactable = true;
-        UnityEngine.Debug.Log("After Waiting "+sec+" Seconds");
     }
     private void updatePlayer()
     {
-        UnityEngine.Debug.Log("Updating Player");
         health.text = "Health: " + Instantiaion.player.getHealth().ToString();
         damagePlayer.text = "- " + GlobalVariables.pDamageDone;
         GlobalVariables.pDamageDone = 0;
@@ -87,7 +84,6 @@ public class Combat : MonoBehaviour {
     }
     private void updateEnemy()
     {
-        UnityEngine.Debug.Log("Updating Enemy");
         enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
         damageEnemy.text = "- " + GlobalVariables.eDamageDone;
         GlobalVariables.eDamageDone = 0;
@@ -126,7 +122,6 @@ public class Combat : MonoBehaviour {
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
-            Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
         
         //Bound Health
             if (Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
@@ -144,7 +139,6 @@ public class Combat : MonoBehaviour {
             {
             if (healAbilityUsed)
             {
-                UnityEngine.Debug.Log("First Aid kit used");
                 StartCoroutine(
                     Wait(1,
                     () =>
@@ -173,10 +167,13 @@ public class Combat : MonoBehaviour {
             }
             turnChanged = false;
 
-        
+        //Austins Code, Health Bar
+        Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
+
+
     }
 
-    
+
 
     private void Awake()
     {

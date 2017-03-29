@@ -16,7 +16,7 @@ public class Alien : Enemy {
     }
 
     public override int getUsedAbility(){
-        return 1;
+            return 1;
     }
 
     public override void ability1(Entity target){
@@ -33,7 +33,8 @@ public class Alien : Enemy {
 
     }
     public override void ability4(Entity target){
-
+        UnityEngine.Debug.Log("Healing Enemy");
+        heal(15);
     }
 
     public override string getAbility1Name(){
@@ -46,7 +47,7 @@ public class Alien : Enemy {
         return null;
     }
     public override string getAbility4Name(){
-        return null;
+        return "Heal";
     }
 
 	public int getHealth(){
