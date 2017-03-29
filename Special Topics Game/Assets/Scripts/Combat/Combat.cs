@@ -22,6 +22,7 @@ public class Combat : MonoBehaviour {
 	public Text damagePlayer;
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
+    private Camera camMain;
     Enemy enemy;
 
     private Stopwatch stopwatch = Stopwatch.StartNew();
@@ -55,6 +56,7 @@ public class Combat : MonoBehaviour {
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
             enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
+            Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
             damageEnemy.text = "- " + GlobalVariables.eDamageDone;
             damagePlayer.text = "- " + GlobalVariables.pDamageDone;
 

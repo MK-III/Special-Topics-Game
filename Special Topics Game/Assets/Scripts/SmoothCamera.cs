@@ -9,6 +9,7 @@ public class SmoothCamera : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public Transform target; //player
     private Camera camMain;
+    private float distance;
 
     // Use this for initialization
     void Start()
@@ -24,9 +25,10 @@ public class SmoothCamera : MonoBehaviour
             //transform.LookAt(target, transform.up);
             Vector3 point = camMain.WorldToViewportPoint(target.position);
             Vector3 delta = target.position - camMain.ViewportToWorldPoint(new Vector3(0.18f, 0.38f, point.z));
-            //Vector3 destination = transform.position + delta;
-            //transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+            Vector3 destination = transform.position + delta;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
 
         }
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - distance);
     }
 }
