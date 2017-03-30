@@ -24,6 +24,8 @@ public class Combat : MonoBehaviour {
 	public Text damagePlayer;
     public Text healPlayer;
     public Text healEnemy;
+    public Text eAbility;
+    public Text pAbility;
     private Entity enemyTarget = Instantiaion.player;
     private Entity playerTarget;
     private Camera camMain;
@@ -31,14 +33,13 @@ public class Combat : MonoBehaviour {
     public Button button2;
     public Button button3;
     public Button button4;
-
     Enemy enemy;
-
     private Stopwatch stopwatch = Stopwatch.StartNew();
-    private bool healAbilityUsed = false;
 
     // Use this for initialization
     void Start () {
+        pAbility.text = "";
+        eAbility.text = "";
         button1.interactable = true;
         button2.interactable = true;
         button3.interactable = true;
@@ -92,7 +93,7 @@ public class Combat : MonoBehaviour {
     }
     private void enemyAttack()
     {
-        switch (enemy.getUsedAbility())
+        switch (enemy.getUsedAbility(this.enemy.getHealth()))
         {
             case 1:
                 enemy.ability1(enemyTarget);
@@ -107,6 +108,8 @@ public class Combat : MonoBehaviour {
                 enemy.ability4(enemyTarget);
                 break;
         }
+        eAbility.text = enemy.getUsedAbilityName();
+        pAbility.text = "";
     }
     // Update is called once per frame
     void FixedUpdate () {
@@ -137,33 +140,21 @@ public class Combat : MonoBehaviour {
         //Change to Next Turn
             if (turnChanged)
             {
-            if (healAbilityUsed)
-            {
+            pAbility.text = Instantiaion.player.getUsedAbilityName();
+            eAbility.text = "";
                 StartCoroutine(
                     Wait(1,
                     () =>
-                    {
-                        updatePlayer();
-                    },
-                () =>
                 {
-                    enemyAttack();
                     updatePlayer();
-                }));
-            }
-            else {
-                StartCoroutine(
-                    Wait(1,
-                    () =>
-                {
                     updateEnemy();
                 },
                 () =>
                 {
                     enemyAttack();
                     updatePlayer();
-                })); }
-            healAbilityUsed = false;
+                    updateEnemy();
+                }));
             }
             turnChanged = false;
 
@@ -188,24 +179,22 @@ public class Combat : MonoBehaviour {
     
     public void ActivateWeaponAbility1(){
         Instantiaion.player.WeaponAbility1(playerTarget);
+        Instantiaion.player.setUsedAbility(1);
     }
 
     public void ActivateWeaponAbility2(){
         Instantiaion.player.WeaponAbility2(playerTarget);
+        Instantiaion.player.setUsedAbility(2);
     }
 
     public void ActivateAssistAbility(){
         Instantiaion.player.AssistAbility(playerTarget);
+        Instantiaion.player.setUsedAbility(3);
     }
 
     public void ActivateMedicalAbility(){
         Instantiaion.player.MedicalAbility(playerTarget);
-        if (Instantiaion.player.eqp[2].getNameAbility1()=="First Aid Kit" || 
-            Instantiaion.player.eqp[2].getNameAbility1() == "NanoBots" ||
-            Instantiaion.player.eqp[2].getNameAbility1() == "Adv. First Aid Kit")
-        {
-            healAbilityUsed = true;
-        }
+        Instantiaion.player.setUsedAbility(4);
     }
 
 }

@@ -79,7 +79,8 @@ public abstract class Enemy : Entity{
         return defense;
     }
 
-    public abstract int getUsedAbility();
+    public abstract int getUsedAbility(int currentHealth);
+    public abstract string getUsedAbilityName();
 
     public override void doDamage(int damage)
 	{

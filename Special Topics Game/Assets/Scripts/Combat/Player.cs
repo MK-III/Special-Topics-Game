@@ -19,6 +19,7 @@ public class Player : Entity{
     public int Defense = 0;
 	public int Attack = 0;
 	public int Damage = 0;
+    public int usedAbility = 0;
 
     public Player(){
         eqp = new Item[] { new Fists(), null, null };
@@ -98,6 +99,40 @@ public class Player : Entity{
         if (eqp[2] == null)
             return "";
         return eqp[2].getNameAbility1();
+    }
+
+    public int getUsedAbility()
+    {
+        return usedAbility;
+    }
+
+    public void setUsedAbility(int num)
+    {
+        usedAbility = num;
+    }
+    
+    public string getUsedAbilityName()
+    {
+        string text;
+        switch (usedAbility)
+        {
+            case 1:
+                text = Instantiaion.player.GetNameWeaponAbility1();
+                break;
+            case 2:
+                text = Instantiaion.player.GetNameWeaponAbility2();
+                break;
+            case 3:
+                text = Instantiaion.player.GetNameAssistAbility();
+                break;
+            case 4:
+                text = Instantiaion.player.GetNameMedicalAbility();
+                break;
+            default:
+                text = "No Player Ability Used";
+                break;
+        }
+        return text;
     }
 
     //Statistics Methods
