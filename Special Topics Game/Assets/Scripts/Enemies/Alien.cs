@@ -38,22 +38,23 @@ public class Alien : Enemy {
         {
         switch (Instantiaion.player.getUsedAbility())
         {
+                    case 1:
+                        usedAbility = 1;
+                        break;
                     case 2:
                         usedAbility = 3;
                         break;
                     case 3:
-                        usedAbility = 2;
+                        usedAbility = 1;
                         break;
                     case 4:
-                        usedAbility = 4;
-                        healCount += 1;
+                        usedAbility = 2;
                         break;
                     default:
                         usedAbility = 1;
                         break;
         }
         }
-        
         return usedAbility;
     }
     

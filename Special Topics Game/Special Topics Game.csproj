@@ -82,11 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CameraController.cs" />
-    <Compile Include="Assets\Scenes\Enemies\Alien.cs" />
-    <Compile Include="Assets\Scenes\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Combat\Combat.cs" />
     <Compile Include="Assets\Scripts\Combat\Player.cs" />
     <Compile Include="Assets\Scripts\Combat\ReturnToMain.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Alien.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyTriggered.cs" />
     <Compile Include="Assets\Scripts\EnterCombat.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
