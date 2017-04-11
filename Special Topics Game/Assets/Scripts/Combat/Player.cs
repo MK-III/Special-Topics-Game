@@ -10,11 +10,15 @@ public class Player : Entity{
      * Slot 3 - Medical*/
 
     public Item[] eqp = new Item[3];
-    private static ArrayList inv = new ArrayList();
+    public bool[] inv = new bool[8];
+
+    //Item IDs need -7 subtracted from them to refrence this array
+    public int[] consumables = new int[14];
 
 	public readonly int DEFENSE = 25;
 	public readonly int ATTACK = 0;
 	public readonly int DAMAGE = 0;
+    public readonly int HEALTH = 100;
     private int health = 100;
     public int Defense = 0;
 	public int Attack = 0;
@@ -23,6 +27,24 @@ public class Player : Entity{
 
     public Player(){
         eqp = new Item[] { new Fists(), null, null };
+    }
+    public void discoverItem(Item item)
+    {
+        //If it's a consumable
+        if(item.GetItemType() == Item.type.Medical || item.GetItemType() == Item.type.Assist)
+        {
+            consumables[item.id - 7] += 1;
+        }
+        else
+        {
+            inv[item.id] = true;
+        }
+    }
+
+    public void consumeItem(Item item)
+    {
+        if (item.GetItemType() == Item.type.Medical || item.GetItemType() == Item.type.Assist)
+            consumables[item.id - 7] -= 1;
     }
 
     public override void setAttack(int value)

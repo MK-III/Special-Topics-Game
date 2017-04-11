@@ -9,6 +9,7 @@ public class Instantiaion : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        player.inv[0] = true;
         DontDestroyOnLoad(gameObject);
         player.EquipItem(new Fists());
 		player.EquipItem (new FirstAidKit ());

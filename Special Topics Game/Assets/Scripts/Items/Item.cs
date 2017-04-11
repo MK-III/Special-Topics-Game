@@ -6,7 +6,7 @@ using System.Linq;
 
 public abstract class Item{
 
-    short id;
+    public short id;
     private type itemType;
 	public string name;
 
@@ -15,6 +15,14 @@ public abstract class Item{
         this.id = id;
         this.itemType = itemType;
 		this.name = name;
+    }
+
+    public bool checkType(Item item, type checkType)
+    {
+        if (item.GetItemType() == checkType)
+            return true;
+        else
+            return false;
     }
 
     public enum type

@@ -8,6 +8,7 @@ public abstract class Enemy : Entity{
 
     public Entity target = Instantiaion.player;
 	private int health;
+    public readonly int HEALTH;
 	public readonly int DEFENSE;
 	public readonly int ATTACK;
 	public readonly int DAMAGE;
@@ -15,12 +16,13 @@ public abstract class Enemy : Entity{
     public int attack;
     public int damage;
 
-	public Enemy(int health, int DEFENSE, int ATTACK, int DAMAGE)
+	public Enemy(int HEALTH, int DEFENSE, int ATTACK, int DAMAGE)
     {
 		this.defense = DEFENSE;
 		this.damage = DAMAGE;
 		this.attack = ATTACK;
-        this.health = health;
+        this.health = HEALTH;
+        this.HEALTH = HEALTH;
 		this.DEFENSE = DEFENSE;
 		this.ATTACK = ATTACK;
 		this.DAMAGE = DAMAGE;

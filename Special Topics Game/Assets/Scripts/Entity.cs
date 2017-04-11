@@ -7,6 +7,7 @@ public abstract class Entity {
     public readonly int DAMAGE;
     public readonly int DEFENSE;
     public readonly int ATTACK;
+    public readonly int HEALTH;
 
     public abstract void ability1(Entity target);
     public abstract void ability2(Entity target);

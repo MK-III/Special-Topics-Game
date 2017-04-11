@@ -77,6 +77,7 @@ public class Combat : MonoBehaviour {
     }
     private void updatePlayer()
     {
+        if (Instantiaion.player.getHealth() > Instantiaion.player.HEALTH) { Instantiaion.player.setHealth(Instantiaion.player.HEALTH); }
         health.text = "Health: " + Instantiaion.player.getHealth().ToString();
         damagePlayer.text = "- " + GlobalVariables.pDamageDone;
         GlobalVariables.pDamageDone = 0;
@@ -85,6 +86,7 @@ public class Combat : MonoBehaviour {
     }
     private void updateEnemy()
     {
+        if (this.enemy.getHealth() > this.enemy.HEALTH) { this.enemy.setHealth(this.enemy.HEALTH); }
         enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
         damageEnemy.text = "- " + GlobalVariables.eDamageDone;
         GlobalVariables.eDamageDone = 0;
@@ -125,9 +127,6 @@ public class Combat : MonoBehaviour {
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
-        
-        //Bound Health
-            if (Instantiaion.player.getHealth() > 100) { Instantiaion.player.setHealth(100); }
         //Kill Player
             if (Instantiaion.player.getHealth() <= 0)
             {

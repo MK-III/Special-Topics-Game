@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Items\Healing\Morphine.cs" />
     <Compile Include="Assets\Scripts\Items\Healing\NanoBots.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemUnlock.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Fists.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Gattlin Gun.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Laser Rifle.cs" />
