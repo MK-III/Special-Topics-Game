@@ -5,7 +5,7 @@ Moonshine - 18
 First Aid Kit - 13
 Alien Probe - 16
 Adv First Aid Kit - 15
-(NEED ITEM HERE) - 20
+Bionic Armor - 20
 
 Assistance:
 Dynamite - 8
@@ -14,7 +14,7 @@ Flash Bang - 10
 Invisibility - 11
 Shield - 12
 Smoke Bomb - 13
-(NEED ITEM HERE) - 14
+Spur Kick - 14
 
 Weapons:
 Fists - 0

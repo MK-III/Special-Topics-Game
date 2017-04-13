@@ -107,7 +107,6 @@
     <Compile Include="Assets\Scripts\Items\Healing\Morphine.cs" />
     <Compile Include="Assets\Scripts\Items\Healing\NanoBots.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemUnlock.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Fists.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Gattlin Gun.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Laser Rifle.cs" />
@@ -118,6 +117,10 @@
     <Compile Include="Assets\Scripts\Items\Weapons\Saber.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
     <Compile Include="Assets\Scripts\KillBox.cs" />
+    <Compile Include="Assets\Scripts\Level Gen\Level Generator.cs" />
+    <Compile Include="Assets\Scripts\Level Gen\Level.cs" />
+    <Compile Include="Assets\Scripts\Level Gen\Room.cs" />
+    <Compile Include="Assets\Scripts\Level Generator.cs" />
     <Compile Include="Assets\Scripts\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera.cs" />
   </ItemGroup>
