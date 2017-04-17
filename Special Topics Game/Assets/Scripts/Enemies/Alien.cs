@@ -16,7 +16,10 @@ public class Alien : Enemy {
 
     public Alien() : base(health, defense, attack, damage){
     }
-
+    public override void onDeath()
+    {
+        Instantiaion.player.discoverItem(new Revolver());
+    }
     public override int getUsedAbility(int currentHealth)
     {
         if (currentHealth < 30)

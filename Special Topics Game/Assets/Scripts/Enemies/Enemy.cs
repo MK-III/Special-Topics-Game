@@ -28,6 +28,7 @@ public abstract class Enemy : Entity{
 		this.DAMAGE = DAMAGE;
     }
 
+    public abstract void onDeath()
     public override void changeTarget(Entity newTarget)
     {
         this.target = newTarget;

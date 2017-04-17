@@ -134,8 +134,11 @@ public class Combat : MonoBehaviour {
                 Instantiaion.player.setHealth(100);
             }
         //Kill Enemy
-            if (this.enemy.getHealth() <= 0)
-                this.enemy.killEnemy();
+        if (this.enemy.getHealth() <= 0)
+        {
+            this.enemy.onDeath();
+            this.enemy.killEnemy();
+        }
         //Change to Next Turn
             if (turnChanged)
             {

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelGenerator {
+public class LevelGenerator2 {
 
     int difficultyCap = 20;
     int difficultyMin = 10;
     int actualDifficulty;
 
-    public LevelGenerator(int difficultyCap, int difficultyMin)
+    public LevelGenerator2(int difficultyCap, int difficultyMin)
     {
         this.difficultyCap = difficultyCap;
         this.difficultyMin = difficultyMin;
