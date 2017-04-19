@@ -19,6 +19,8 @@ public class EquipItems : MonoBehaviour {
     public Button laserRifle;
     public Button lazerSaber;
     public Button gattlinGun;
+    public Image ImageEqpPic;
+    public Sprite pic;
     // Use this for initialization
     void Start () {
         fists.interactable = false;
@@ -42,6 +44,36 @@ public class EquipItems : MonoBehaviour {
         eqpdWeapon.text = Instantiaion.player.eqp[0].name;
         eqpdAssist.text = Instantiaion.player.eqp[1].name;
         eqpdHealth.text = Instantiaion.player.eqp[2].name;
+        GameObject go = GameObject.Find("pic");
+        switch(Instantiaion.player.eqp[0].id)
+        {
+            case 0://fists
+                pic = go.GetComponent<SpriteRenderer>().sprite;
+                //ImageEqpPic = Resources.Load("Assests/Sprites/Medkit", typeof(Image)) as Image;
+                break;
+            case 1://revolver
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Revolver");
+                break;
+            case 2://plasma pistol
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/ADVMedkit");
+                break;
+            case 3://laser rifle
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Laser Rifle");
+                break;
+            case 4://lazer saber
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Laser Saber");
+                break;
+            case 5://Gattlin Gun
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Gattling Gun");
+                break;
+            case 6://Repeating Rifle
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Repeating Rifle");
+                break;
+            case 7://Saber
+                ImageEqpPic = Resources.Load<Image>("Assests/Sprites/Saber");
+                break;
+        }
+        
         if (Instantiaion.player.inv[0] == true)
         {
             fists.interactable = true;
