@@ -35,6 +35,7 @@ public class Combat : MonoBehaviour {
     public Button button4;
     Enemy enemy;
     private Stopwatch stopwatch = Stopwatch.StartNew();
+    public Boolean stopFirstUpdate = false;
 
     // Use this for initialization
     void Start () {
@@ -80,6 +81,7 @@ public class Combat : MonoBehaviour {
         if (Instantiaion.player.getHealth() > Instantiaion.player.HEALTH) { Instantiaion.player.setHealth(Instantiaion.player.HEALTH); }
         health.text = "Health: " + Instantiaion.player.getHealth().ToString();
         damagePlayer.text = "- " + GlobalVariables.pDamageDone;
+        GameObject.FindGameObjectWithTag("Player Health Bar").transform.Translate(new Vector3((GlobalVariables.pHealed - GlobalVariables.pDamageDone)*(264f / Instantiaion.player.HEALTH), 0.0f, 0.0f));
         GlobalVariables.pDamageDone = 0;
         healPlayer.text = "+ " + GlobalVariables.pHealed;
         GlobalVariables.pHealed = 0;
@@ -116,19 +118,21 @@ public class Combat : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
         //Initial Conditions
-        if (GlobalVariables.turn == 0)
+        if(GlobalVariables.turn == 0 && !stopFirstUpdate)
         {
             updatePlayer();
             updateEnemy();
+            stopFirstUpdate = true;
         }
-            TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
+
+        TurnCount.text = "Turn: " + GlobalVariables.turn.ToString();
             ability1.text = Instantiaion.player.GetNameWeaponAbility1();
             ability2.text = Instantiaion.player.GetNameWeaponAbility2();
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
         //Kill Player
-            if (Instantiaion.player.getHealth() <= 0)
+        if (Instantiaion.player.getHealth() <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
                 Instantiaion.player.setHealth(100);
@@ -161,12 +165,18 @@ public class Combat : MonoBehaviour {
             turnChanged = false;
 
         //Austins Code, Health Bar
-        Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
+        //Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
 
 
     }
-
-
+    
+    public void changeScale(int val)
+    {
+        // Vector3 scale = transform.localScale;
+        //scale.x = val;
+        
+        //GameObject.FindGameObjectWithTag("Player Health Bar").transform.localScale = scale;
+    }
 
     private void Awake()
     {

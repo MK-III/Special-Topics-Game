@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EquipItems : MonoBehaviour {
+public class EquipItems : MonoBehaviour { 
 
 	public Text eqpdWeapon;
     public Text eqpdAssist;
