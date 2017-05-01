@@ -36,6 +36,8 @@ public class Combat : MonoBehaviour {
     Enemy enemy;
     private Stopwatch stopwatch = Stopwatch.StartNew();
     public Boolean stopFirstUpdate = false;
+    public Animator Anim;
+    public bool attack;
 
     // Use this for initialization
     void Start () {
@@ -81,6 +83,7 @@ public class Combat : MonoBehaviour {
         if (Instantiaion.player.getHealth() > Instantiaion.player.HEALTH) { Instantiaion.player.setHealth(Instantiaion.player.HEALTH); }
         health.text = "Health: " + Instantiaion.player.getHealth().ToString();
         damagePlayer.text = "- " + GlobalVariables.pDamageDone;
+        //GameObject.FindGameObjectWithTag("Player Health Bar").transform.localScale += new Vector3(-(GlobalVariables.pHealed - GlobalVariables.pDamageDone)/2.64f, 0.0f, 0.0f);
         GameObject.FindGameObjectWithTag("Player Health Bar").transform.Translate(new Vector3((GlobalVariables.pHealed - GlobalVariables.pDamageDone)*(264f / Instantiaion.player.HEALTH), 0.0f, 0.0f));
         GlobalVariables.pDamageDone = 0;
         healPlayer.text = "+ " + GlobalVariables.pHealed;
@@ -118,6 +121,7 @@ public class Combat : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
         //Initial Conditions
+        attack = false;
         if(GlobalVariables.turn == 0 && !stopFirstUpdate)
         {
             updatePlayer();
@@ -153,6 +157,8 @@ public class Combat : MonoBehaviour {
                     () =>
                 {
                     updatePlayer();
+                    attack = true;
+                    Anim.SetBool("attack", attack);
                     updateEnemy();
                 },
                 () =>
@@ -162,8 +168,8 @@ public class Combat : MonoBehaviour {
                     updateEnemy();
                 }));
             }
-            turnChanged = false;
-
+        turnChanged = false;
+        Anim.SetBool("attack", attack);
         //Austins Code, Health Bar
         //Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
 
