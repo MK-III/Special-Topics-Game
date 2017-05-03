@@ -31,7 +31,7 @@ public class SmokeBomb : Item {
 
     public override string getNameAbility1()
     {
-        return "Vape Naysh";
+        return "Smoke Bomb";
     }
 
     public override void ability2(Entity target)

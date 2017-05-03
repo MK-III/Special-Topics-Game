@@ -171,6 +171,7 @@ public class Combat : MonoBehaviour {
             }
         turnChanged = false;
     }
+
     public void runPlayerAnim(int option, bool attack)
     {
 
@@ -201,6 +202,80 @@ public class Combat : MonoBehaviour {
                 Anim.SetBool("Revolver2", attack);
                 break;
             case "Punch":
+                break;
+                Anim.SetBool("Fists1", attack);
+                break;
+            case "Strangle":
+                Anim.SetBool("Fists2", attack);
+                break;
+            case "Plasma Burn":
+                Anim.SetBool("Plasma1", attack);
+                break;
+            case "Plasma Stab":
+                Anim.SetBool("Plasma2", attack);
+                break;
+            case "Shoot Repeater":
+                Anim.SetBool("Repeating1", attack);
+                break;
+            case "Multi Shot":
+                Anim.SetBool("Repeating2", attack);
+                break;
+            case "Spray":
+                Anim.SetBool("Gattling1", attack);
+                break;
+            case "Focus":
+                Anim.SetBool("Gattling2", attack);
+                break;
+            case "Laser Shot":
+                Anim.SetBool("Laser1", attack);
+                break;
+            case "Head Shot":
+                Anim.SetBool("Laser2", attack);
+                break;
+            case "Lazer Slash":
+                Anim.SetBool("LazerS1", attack);
+                break;
+            case "Deflect":
+                Anim.SetBool("LazerS2", attack);
+                break;
+            case "Slash":
+                Anim.SetBool("Sabre1", attack);
+                break;
+            case "Charge":
+                Anim.SetBool("Sabre2", attack);
+                break;
+            case "Adv. First Aid Kit":
+                Anim.SetBool("Adv. First Aid Kit", attack);
+                break;
+            case "Alien Probe":
+                Anim.SetBool("Alien Probe", attack);
+                break;
+            case "First Aid Kit":
+                Anim.SetBool("First Aid Kit", attack);
+                break;
+            case "Moonshine":
+                Anim.SetBool("Moonshine", attack);
+                break;
+            case "Morphine":
+                Anim.SetBool("Morphine", attack);
+                break;
+            case "NanoBots":
+                Anim.SetBool("NanoBots", attack);
+                break;
+            case "Explode":
+                Anim.SetBool("Explode", attack);
+                break;
+            case "Flash Bang":
+                Anim.SetBool("Flash Bang", attack);
+                break;
+            case "Sheild":
+                Anim.SetBool("Sheild", attack);
+                break;
+            case "Smoke Bomb":
+                Anim.SetBool("Smoke Bomb", attack);
+                break;
+            default:
+                UnityEngine.Debug.Log("Error with runPlayerAnim");
                 break;
         }
     }

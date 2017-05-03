@@ -19,6 +19,12 @@ public class Alien : Enemy {
     public override void onDeath()
     {
         Instantiaion.player.discoverItem(new Revolver());
+        Instantiaion.player.discoverItem(new PlasmaPistol());
+        Instantiaion.player.discoverItem(new Saber());
+        Instantiaion.player.discoverItem(new GattlinGun());
+        Instantiaion.player.discoverItem(new RepeatingRifle());
+        Instantiaion.player.discoverItem(new LaserRifle());
+        Instantiaion.player.discoverItem(new LazerSaber());
     }
     public override int getUsedAbility(int currentHealth)
     {
