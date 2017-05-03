@@ -27,7 +27,7 @@ public class RepeatingRifle : Item {
 
     public override string getNameAbility1()
     {
-        return "Shoot";
+        return "Shoot Repeater";
     }
 
     public override void ability2(Entity target)

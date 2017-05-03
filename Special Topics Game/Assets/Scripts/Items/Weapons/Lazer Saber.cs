@@ -27,7 +27,7 @@ public class LazerSaber : Item {
 
     public override string getNameAbility1()
     {
-        return "Slash";
+        return "Lazer Slash";
     }
 
     public override void ability2(Entity target)
