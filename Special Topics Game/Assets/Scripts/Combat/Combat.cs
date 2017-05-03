@@ -38,6 +38,7 @@ public class Combat : MonoBehaviour {
     public Boolean stopFirstUpdate = false;
     public Animator Anim;
     public bool attack;
+    public String usedAttackName;
 
     // Use this for initialization
     void Start () {
@@ -156,8 +157,7 @@ public class Combat : MonoBehaviour {
                     () =>
                 {
                     updatePlayer();
-                    attack = true;
-                    Anim.SetBool("attack", attack);
+                    runPlayerAnim(Instantiaion.player.getUsedAbility(), true);
                     updateEnemy();
                 },
                 () =>
@@ -165,13 +165,45 @@ public class Combat : MonoBehaviour {
                     enemyAttack();
                     updatePlayer();
                     updateEnemy();
-                    attack = false;
-                    Anim.SetBool("attack", attack);
+                    runPlayerAnim(Instantiaion.player.getUsedAbility(), false);
+
                 }));
             }
         turnChanged = false;
     }
-    
+    public void runPlayerAnim(int option, bool attack)
+    {
+
+        switch (option)
+        {
+            case 1:
+                usedAttackName= Instantiaion.player.getAbility1Name();
+                break;
+            case 2:
+                usedAttackName = Instantiaion.player.getAbility2Name();
+                break;
+            case 3:
+                usedAttackName = Instantiaion.player.getAbility3Name();
+                break;
+            case 4:
+                usedAttackName = Instantiaion.player.getAbility4Name();
+                break;
+            default:
+                UnityEngine.Debug.Log("Error with runPlayerAnim");
+                break;
+          }
+        switch (usedAttackName)
+        {
+            case "Shoot":
+                Anim.SetBool("Revolver1", attack);
+                break;
+            case "Pistol Whip":
+                Anim.SetBool("Revolver2", attack);
+                break;
+            case "Punch":
+                break;
+        }
+    }
     public void changeScale(int val)
     {
         // Vector3 scale = transform.localScale;
