@@ -121,7 +121,6 @@ public class Combat : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
         //Initial Conditions
-        attack = false;
         if(GlobalVariables.turn == 0 && !stopFirstUpdate)
         {
             updatePlayer();
@@ -166,14 +165,11 @@ public class Combat : MonoBehaviour {
                     enemyAttack();
                     updatePlayer();
                     updateEnemy();
+                    attack = false;
+                    Anim.SetBool("attack", attack);
                 }));
             }
         turnChanged = false;
-        Anim.SetBool("attack", attack);
-        //Austins Code, Health Bar
-        //Vector3 delta = GameObject.FindGameObjectWithTag("HealthBar").transform.position - camMain.ViewportToWorldPoint(new Vector3(((Instantiaion.player.getHealth()) * 2.64f), 0.0f, 0.0f));
-
-
     }
     
     public void changeScale(int val)
