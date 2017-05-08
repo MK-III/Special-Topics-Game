@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class Alien : Enemy {
 
-	private static int health = 100;
+	private static int health = 10000;
     public static int defense = 25;
     public static int attack = 20;
     public static int damage = 20;
@@ -19,12 +19,6 @@ public class Alien : Enemy {
     public override void onDeath()
     {
         Instantiaion.player.discoverItem(new Revolver());
-        Instantiaion.player.discoverItem(new PlasmaPistol());
-        Instantiaion.player.discoverItem(new Saber());
-        Instantiaion.player.discoverItem(new GattlinGun());
-        Instantiaion.player.discoverItem(new RepeatingRifle());
-        Instantiaion.player.discoverItem(new LaserRifle());
-        Instantiaion.player.discoverItem(new LazerSaber());
     }
     public override int getUsedAbility(int currentHealth)
     {

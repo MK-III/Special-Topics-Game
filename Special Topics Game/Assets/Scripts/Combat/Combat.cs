@@ -37,7 +37,6 @@ public class Combat : MonoBehaviour {
     private Stopwatch stopwatch = Stopwatch.StartNew();
     public Boolean stopFirstUpdate = false;
     public Animator Anim;
-    public bool attack;
     public String usedAttackName;
 
     // Use this for initialization
@@ -49,6 +48,7 @@ public class Combat : MonoBehaviour {
         button3.interactable = true;
         button4.interactable = true;
         combat = GetComponent<EnterCombat>();
+        GameObject.FindGameObjectWithTag("Player Health Bar").transform.Translate(new Vector3((-Instantiaion.player.HEALTH+Instantiaion.player.getHealth()) * (264f / Instantiaion.player.HEALTH), 0.0f, 0.0f));
         GlobalVariables.turn = 0;
         switch (GlobalVariables.enemyName)
         {
@@ -135,25 +135,14 @@ public class Combat : MonoBehaviour {
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
-        //Kill Player
-        if (Instantiaion.player.getHealth() <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
-                Instantiaion.player.setHealth(100);
-            }
-        //Kill Enemy
-        if (this.enemy.getHealth() <= 0)
-        {
-            this.enemy.onDeath();
-            this.enemy.killEnemy();
-        }
+        
         //Change to Next Turn
-            if (turnChanged)
+            if (turnChanged && Instantiaion.player.getHealth() > 0 && this.enemy.getHealth() > 0)
             {
             pAbility.text = Instantiaion.player.getUsedAbilityName();
             eAbility.text = "";
                 StartCoroutine(
-                    Wait(1,
+                    Wait(2,
                     () =>
                 {
                     updatePlayer();
@@ -170,6 +159,38 @@ public class Combat : MonoBehaviour {
                 }));
             }
         turnChanged = false;
+        //End Combat
+        if (Instantiaion.player.getHealth() <= 0 || this.enemy.getHealth() <= 0)
+        {
+            StartCoroutine(
+                    Wait(5,
+                    () =>
+                    {
+                        if (Instantiaion.player.getHealth() <= 0)
+                        {
+                            //death animation
+                        }
+                        else
+                        {
+                            updatePlayer();
+                            runPlayerAnim(Instantiaion.player.getUsedAbility(), true);
+                            updateEnemy();
+                        }
+                  },
+                () =>
+                {
+                    if (Instantiaion.player.getHealth() <= 0)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetSceneByName("scene1").buildIndex);
+                        Instantiaion.player.setHealth(100);
+                    }
+                    else
+                    {
+                        this.enemy.onDeath();
+                        this.enemy.killEnemy();
+                    }
+                }));
+        }
     }
 
     public void runPlayerAnim(int option, bool attack)

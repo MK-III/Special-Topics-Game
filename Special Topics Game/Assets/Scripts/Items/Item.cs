@@ -34,7 +34,6 @@ public abstract class Item{
 		
     public abstract void ability1(Entity target);
     public abstract void ability2(Entity target);
-
     public abstract string getNameAbility1();
     public abstract string getNameAbility2();
 
