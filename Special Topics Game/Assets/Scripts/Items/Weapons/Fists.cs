@@ -28,7 +28,7 @@ public class Fists : Item {
 
     public override string getNameAbility1()
     {
-        return "Punch";
+        return "Jab";
     }
 
     public override void ability2(Entity target)
@@ -42,6 +42,6 @@ public class Fists : Item {
 
     public override string getNameAbility2()
     {
-        return "Strangle";
+        return "UpperCut";
     }
 }

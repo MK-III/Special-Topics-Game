@@ -30,6 +30,10 @@ public class PlayerHandler : MonoBehaviour {
             player.velocity = new Vector2(-maxSpeed, player.velocity.y);
 
         player.velocity = dampSpeed(h);
+        
+    }
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (GlobalVariables.inInventory == false)
@@ -44,7 +48,6 @@ public class PlayerHandler : MonoBehaviour {
             }
         }
     }
-
     private Vector2 dampSpeed(float h){
         Vector2 dampSpeed;
 

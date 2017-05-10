@@ -245,11 +245,11 @@ public class Combat : MonoBehaviour {
             case "Pistol Whip":
                 Anim.SetBool("Revolver2", attack);
                 break;
-            case "Punch":
+            case "Jab":
                 break;
                 Anim.SetBool("Fists1", attack);
                 break;
-            case "Strangle":
+            case "UpperCut":
                 Anim.SetBool("Fists2", attack);
                 break;
             case "Plasma Burn":

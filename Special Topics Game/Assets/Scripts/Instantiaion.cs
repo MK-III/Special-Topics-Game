@@ -20,5 +20,16 @@ public class Instantiaion : MonoBehaviour {
         player.discoverItem(new RepeatingRifle());
         player.discoverItem(new LaserRifle());
         player.discoverItem(new LazerSaber());
+        player.discoverItem(new Revolver());
+
+        UnityEngine.Debug.Log(Instantiaion.player.inv[0]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[1]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[2]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[3]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[4]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[5]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[6]);
+        UnityEngine.Debug.Log(Instantiaion.player.inv[7]);
+
     }
 }
