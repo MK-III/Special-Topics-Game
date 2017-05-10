@@ -65,7 +65,7 @@ public class Combat : MonoBehaviour {
         playerTarget = enemy;
     }
 
-    IEnumerator Wait(int sec, Action before, Action after)
+    IEnumerator Wait(float sec, Action before, Action after)
     {
         button1.interactable = false;
         button2.interactable = false;
@@ -84,8 +84,17 @@ public class Combat : MonoBehaviour {
         if (Instantiaion.player.getHealth() > Instantiaion.player.HEALTH) { Instantiaion.player.setHealth(Instantiaion.player.HEALTH); }
         health.text = "Health: " + Instantiaion.player.getHealth().ToString();
         damagePlayer.text = "- " + GlobalVariables.pDamageDone;
-        //GameObject.FindGameObjectWithTag("Player Health Bar").transform.localScale += new Vector3(-(GlobalVariables.pHealed - GlobalVariables.pDamageDone)/2.64f, 0.0f, 0.0f);
-        GameObject.FindGameObjectWithTag("Player Health Bar").transform.Translate(new Vector3((GlobalVariables.pHealed - GlobalVariables.pDamageDone)*(264f / Instantiaion.player.HEALTH), 0.0f, 0.0f));
+        if (Instantiaion.player.getHealth() < 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Player Health Bar"));
+        }
+        else {
+            if (GlobalVariables.pHealed - GlobalVariables.pDamageDone != 0)
+            {
+                GameObject.FindGameObjectWithTag("Player Health Bar").transform.Translate(new Vector3((GlobalVariables.pHealed - GlobalVariables.pDamageDone) * (134f / Instantiaion.player.HEALTH), 0.0f, 0.0f));
+                GameObject.FindGameObjectWithTag("Player Health Bar").transform.localScale += new Vector3(10.18479f * (GlobalVariables.pHealed - GlobalVariables.pDamageDone) * (264f / Instantiaion.player.HEALTH) / 264, 0.0f, 0.0f);
+
+            } }
         GlobalVariables.pDamageDone = 0;
         healPlayer.text = "+ " + GlobalVariables.pHealed;
         GlobalVariables.pHealed = 0;
@@ -95,6 +104,21 @@ public class Combat : MonoBehaviour {
         if (this.enemy.getHealth() > this.enemy.HEALTH) { this.enemy.setHealth(this.enemy.HEALTH); }
         enemyHealth.text = "Enemy Health: " + enemy.getHealth().ToString();
         damageEnemy.text = "- " + GlobalVariables.eDamageDone;
+        if (this.enemy.getHealth() < 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Enemy Health Bar"));
+        }
+        else
+        {
+            if (GlobalVariables.eHealed - GlobalVariables.eDamageDone != 0)
+            {
+                UnityEngine.Debug.Log("scale" + 10.18479f * (GlobalVariables.pHealed - GlobalVariables.pDamageDone) * (264f / this.enemy.HEALTH) / 264);
+                UnityEngine.Debug.Log("shift" + (GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (134f / this.enemy.HEALTH));
+                GameObject.FindGameObjectWithTag("Enemy Health Bar").transform.Translate(new Vector3(-(GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (134f / this.enemy.HEALTH), 0.0f, 0.0f));
+                GameObject.FindGameObjectWithTag("Enemy Health Bar").transform.localScale += new Vector3(10.18479f * (GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (264f / this.enemy.HEALTH) / 264, 0.0f, 0.0f);
+
+            }
+        }
         GlobalVariables.eDamageDone = 0;
         healEnemy.text = "+ " + GlobalVariables.eHealed;
         GlobalVariables.eHealed = 0;
@@ -135,7 +159,6 @@ public class Combat : MonoBehaviour {
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
-        
         //Change to Next Turn
             if (turnChanged && Instantiaion.player.getHealth() > 0 && this.enemy.getHealth() > 0)
             {
@@ -160,7 +183,7 @@ public class Combat : MonoBehaviour {
             }
         turnChanged = false;
         //End Combat
-        if (Instantiaion.player.getHealth() <= 0 || this.enemy.getHealth() <= 0)
+        if (Instantiaion.player.getHealth() <= 0 || enemy.getHealth() <= 0)
         {
             StartCoroutine(
                     Wait(5,
@@ -299,13 +322,6 @@ public class Combat : MonoBehaviour {
                 UnityEngine.Debug.Log("Error with runPlayerAnim");
                 break;
         }
-    }
-    public void changeScale(int val)
-    {
-        // Vector3 scale = transform.localScale;
-        //scale.x = val;
-        
-        //GameObject.FindGameObjectWithTag("Player Health Bar").transform.localScale = scale;
     }
 
     private void Awake()

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class Alien : Enemy {
 
-	private static int health = 10000;
+	private static int health = 100;
     public static int defense = 25;
     public static int attack = 20;
     public static int damage = 20;

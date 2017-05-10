@@ -18,8 +18,8 @@ public class Player : Entity{
 	public readonly int DEFENSE = 25;
 	public readonly int ATTACK = 0;
 	public readonly int DAMAGE = 0;
-    public readonly int HEALTH = 10000;
-    private int health = 10000;
+    public readonly int HEALTH = 100;
+    private int health = 100;
     public int Defense = 0;
 	public int Attack = 0;
 	public int Damage = 0;
