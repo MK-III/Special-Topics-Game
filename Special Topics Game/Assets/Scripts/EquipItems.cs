@@ -19,8 +19,24 @@ public class EquipItems : MonoBehaviour {
     public Button laserRifle;
     public Button lazerSaber;
     public Button gattlinGun;
-    public Image ImageEqpPic;
-    public Sprite pic;
+    public Sprite spriteFists;
+    public Sprite spriteRevolver;
+    public Sprite spritePlasma;
+    public Sprite spriteSaber;
+    public Sprite spriteRepeater;
+    public Sprite spriteLazerSaber;
+    public Sprite spriteLaserRifle;
+    public Sprite spriteGattlinGun;
+    public Sprite playerFists;
+    public Sprite playerRevolver;
+    public Sprite playerPlasma;
+    public Sprite playerRepeater;
+    public Sprite playerSaber;
+    public Sprite playerLaserRifle;
+    public Sprite playerLazerSaber;
+    public Sprite playerGattlinGun;
+    public SpriteRenderer playerSpriteR;
+    public SpriteRenderer weaponSpriteR;
     // Use this for initialization
     void Start () {
         fists.interactable = false;
@@ -42,8 +58,8 @@ public class EquipItems : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         eqpdWeapon.text = Instantiaion.player.eqp[0].name;
-        //eqpdAssist.text = Instantiaion.player.eqp[1].name;
-        //eqpdHealth.text = Instantiaion.player.eqp[2].name;
+        eqpdAssist.text = Instantiaion.player.eqp[1].name;
+        eqpdHealth.text = Instantiaion.player.eqp[2].name;
         UnityEngine.Debug.Log(Instantiaion.player.inv[0]);
         UnityEngine.Debug.Log(Instantiaion.player.inv[1]);
         UnityEngine.Debug.Log(Instantiaion.player.inv[2]);
@@ -82,9 +98,43 @@ public class EquipItems : MonoBehaviour {
         }
         if (Instantiaion.player.inv[5] == true)
         {
-            gattlinGun.interactable = false;
+            gattlinGun.interactable = true;
         }
-
+        switch (Instantiaion.player.eqp[0].id)
+        {
+            case 0:
+                playerSpriteR.sprite = playerFists;
+                weaponSpriteR.sprite = spriteFists;
+                break;
+            case 1:
+                playerSpriteR.sprite = playerRevolver;
+                weaponSpriteR.sprite = spriteRevolver;
+                break;
+            case 2:
+                playerSpriteR.sprite = playerPlasma;
+                weaponSpriteR.sprite = spritePlasma;
+                break;
+            case 3:
+                playerSpriteR.sprite = playerLaserRifle;
+                weaponSpriteR.sprite = spriteLaserRifle;
+                break;
+            case 4:
+                playerSpriteR.sprite = playerLazerSaber;
+                weaponSpriteR.sprite = spriteLazerSaber;
+                break;
+            case 5:
+                playerSpriteR.sprite = playerGattlinGun;
+                weaponSpriteR.sprite = spriteGattlinGun;
+                break;
+            case 6:
+                playerSpriteR.sprite = playerRepeater;
+                weaponSpriteR.sprite = spriteRepeater;
+                break;
+            case 7:
+                playerSpriteR.sprite = playerSaber;
+                weaponSpriteR.sprite = spriteSaber;
+                break;
+        }
     }
 
     void Destroy()
@@ -153,14 +203,14 @@ public class EquipItems : MonoBehaviour {
 	}
 	public void ActivateFists(){
         Instantiaion.player.EquipItem(new Fists());
-	}
-	public void ActivateRevolver(){
+    }
+    public void ActivateRevolver(){
 		Instantiaion.player.EquipItem(new Revolver());
-	}
-	public void ActivatePlasmaPistol(){
+    }
+    public void ActivatePlasmaPistol(){
 		Instantiaion.player.EquipItem(new PlasmaPistol());
-	}
-	public void ActivateLaserRifle(){
+    }
+    public void ActivateLaserRifle(){
 		Instantiaion.player.EquipItem(new LaserRifle());
 	}
 	public void ActivateLazerSaber(){

@@ -38,7 +38,6 @@ public class Combat : MonoBehaviour {
     public Boolean stopFirstUpdate = false;
     public Animator Anim;
     public String usedAttackName;
-
     // Use this for initialization
     void Start () {
         pAbility.text = "";
@@ -112,8 +111,6 @@ public class Combat : MonoBehaviour {
         {
             if (GlobalVariables.eHealed - GlobalVariables.eDamageDone != 0)
             {
-                UnityEngine.Debug.Log("scale" + 10.18479f * (GlobalVariables.pHealed - GlobalVariables.pDamageDone) * (264f / this.enemy.HEALTH) / 264);
-                UnityEngine.Debug.Log("shift" + (GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (134f / this.enemy.HEALTH));
                 GameObject.FindGameObjectWithTag("Enemy Health Bar").transform.Translate(new Vector3(-(GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (134f / this.enemy.HEALTH), 0.0f, 0.0f));
                 GameObject.FindGameObjectWithTag("Enemy Health Bar").transform.localScale += new Vector3(10.18479f * (GlobalVariables.eHealed - GlobalVariables.eDamageDone) * (264f / this.enemy.HEALTH) / 264, 0.0f, 0.0f);
 
@@ -191,7 +188,9 @@ public class Combat : MonoBehaviour {
                     {
                         if (Instantiaion.player.getHealth() <= 0)
                         {
-                            //death animation
+                            Anim.SetBool("isDead", true);
+                            Anim.SetLayerWeight(1, 0);
+                            UnityEngine.Debug.Log("death animation");
                         }
                         else
                         {

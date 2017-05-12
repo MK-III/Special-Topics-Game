@@ -26,7 +26,7 @@ public class Player : Entity{
     public int usedAbility = 0;
 
     public Player(){
-        eqp = new Item[] { new Fists(), null, null };
+        eqp = new Item[] { new Fists(), new Dynamite(), new FirstAidKit() };
     }
     public void discoverItem(Item item)
     {
