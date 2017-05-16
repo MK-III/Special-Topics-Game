@@ -10,7 +10,7 @@ public class Alien : Enemy {
 	private static int health = 100;
     public static int defense = 25;
     public static int attack = 20;
-    public static int damage = 100;
+    public static int damage = 20;
     private int healCount = 0;
     public int usedAbility = 0;
 

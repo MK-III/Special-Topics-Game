@@ -8,6 +8,6 @@ public class GenerateRoom : MonoBehaviour {
 
     private void Start()
     {
-        Instantiate(wallTile, new Vector3(20, 0, 5), Quaternion.identity);
+        //Instantiate(wallTile, new Vector3(20, 0, 5), Quaternion.identity);
     }
 }
