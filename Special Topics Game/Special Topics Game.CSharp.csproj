@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\Items\Weapons\Saber.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
     <Compile Include="Assets\Scripts\KillBox.cs" />
+    <Compile Include="Assets\Scripts\Level Gen\GenerateRoom.cs" />
     <Compile Include="Assets\Scripts\Level Gen\NaturalLevelGen.cs" />
     <Compile Include="Assets\Scripts\Level Generator.cs" />
     <Compile Include="Assets\Scripts\PlayerHandler.cs" />
