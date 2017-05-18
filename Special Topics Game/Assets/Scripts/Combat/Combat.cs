@@ -37,7 +37,11 @@ public class Combat : MonoBehaviour {
     private Stopwatch stopwatch = Stopwatch.StartNew();
     public Boolean stopFirstUpdate = false;
     public Animator Anim;
+    public Animator AnimEnemy;
     public String usedAttackName;
+    public SpriteRenderer healthSpriteR;
+    public Sprite healthNorm;
+    public Sprite healthHurt;
     // Use this for initialization
     void Start () {
         pAbility.text = "";
@@ -156,8 +160,27 @@ public class Combat : MonoBehaviour {
             assistAbility.text = Instantiaion.player.GetNameAssistAbility();
             medicalAbility.text = Instantiaion.player.GetNameMedicalAbility();
             enemyName.text = GlobalVariables.enemyName;
+        //Set player and enemy state
+        if(Instantiaion.player.getHealth() > 50)
+        {
+            healthSpriteR.sprite = healthNorm;
+            Anim.SetBool("isHurt", false);
+        }
+        else
+        {
+            healthSpriteR.sprite = healthHurt;
+            Anim.SetBool("isHurt", true);
+        }
+        if (enemy.getHealth() > 50)
+        {
+            AnimEnemy.SetBool("isHurt", false);
+        }
+        else
+        {
+            AnimEnemy.SetBool("isHurt", true);
+        }
         //Change to Next Turn
-            if (turnChanged && Instantiaion.player.getHealth() > 0 && this.enemy.getHealth() > 0)
+        if (turnChanged && Instantiaion.player.getHealth() > 0 && this.enemy.getHealth() > 0)
             {
             pAbility.text = Instantiaion.player.getUsedAbilityName();
             eAbility.text = "";
@@ -189,14 +212,11 @@ public class Combat : MonoBehaviour {
                         if (Instantiaion.player.getHealth() <= 0)
                         {
                             Anim.SetBool("isDead", true);
-                            Anim.SetLayerWeight(1, 0);
-                            UnityEngine.Debug.Log("death animation");
                         }
                         else
                         {
-                            updatePlayer();
+                            AnimEnemy.SetBool("isDead", true);
                             runPlayerAnim(Instantiaion.player.getUsedAbility(), true);
-                            updateEnemy();
                         }
                   },
                 () =>
