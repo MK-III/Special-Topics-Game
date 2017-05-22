@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UnityStandardAssets._2D
 {
@@ -73,8 +74,7 @@ namespace UnityStandardAssets._2D
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
-                // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -87,6 +87,27 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
+                }
+                    //Prevent the player from moving left in the Opening scene******************
+                    
+                if (SceneManager.GetActiveScene().name == "Opening")
+                {
+                    if (!m_FacingRight)
+                    {
+                        Flip();
+                        // Move the character
+                        m_Rigidbody2D.velocity = new Vector2(0, 0);
+                    }
+                    else
+                    {
+                        // Move the character
+                        m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                    }
+                }
+                else
+                {
+                    // Move the character
+                    m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
                 }
             }
             // If the player should jump...

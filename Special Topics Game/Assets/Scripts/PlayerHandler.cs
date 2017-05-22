@@ -9,7 +9,6 @@ public class PlayerHandler : MonoBehaviour {
     public float runSpeed = 15f;
     public float maxSpeed = 5f;
     public bool inCombat = GlobalVariables.inCombat;
-
     private Rigidbody2D player;
     private GroundCheck grndChk;
 
@@ -21,20 +20,22 @@ public class PlayerHandler : MonoBehaviour {
     }
 
     private void FixedUpdate(){
-        float h = Input.GetAxisRaw("Horizontal");
-        player.AddForce(Vector2.right * h * ((Input.GetKey(KeyCode.LeftShift)) ? runSpeed : walkSpeed));
+            float h = Input.GetAxisRaw("Horizontal");
+            if (SceneManager.GetActiveScene().name != "Opening")
+             {
+            player.AddForce(Vector2.right * h * ((Input.GetKey(KeyCode.LeftShift)) ? runSpeed : walkSpeed));
+            }
         //Slow down player
         if (player.velocity.x > maxSpeed)
-            player.velocity = new Vector2(maxSpeed, player.velocity.y);
-        else if (player.velocity.x < -maxSpeed)
-            player.velocity = new Vector2(-maxSpeed, player.velocity.y);
+                player.velocity = new Vector2(maxSpeed, player.velocity.y);
+            else if (player.velocity.x < -maxSpeed)
+                player.velocity = new Vector2(-maxSpeed, player.velocity.y);
 
-        player.velocity = dampSpeed(h);
-        
+            player.velocity = dampSpeed(h);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && SceneManager.GetActiveScene().name != "Opening")
         {
             if (GlobalVariables.inInventory == false)
             {

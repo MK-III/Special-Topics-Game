@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SmoothBackground : MonoBehaviour
+{
+
+    public float dampTime = 0.15f;
+    private Vector3 velocity = Vector3.zero;
+    public Transform target; //player
+    private Camera camMain;
+    private GameObject background;
+    private float distance;
+
+    // Use this for initialization
+    void Start()
+    {
+        camMain = GetComponent<Camera>();
+        background = GameObject.FindGameObjectWithTag("background");
+    }
+
+    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        if (target)
+        {
+            //transform.LookAt(target, transform.up);
+            Vector3 point = camMain.WorldToViewportPoint(target.position);
+            Vector3 delta = target.position - camMain.ViewportToWorldPoint(new Vector3(0.18f, 0.24f, point.z));
+            Vector3 destination = transform.position + delta;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+
+        }
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - distance);
+    }
+}

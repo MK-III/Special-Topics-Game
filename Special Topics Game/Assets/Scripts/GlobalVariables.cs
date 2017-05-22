@@ -11,5 +11,6 @@ public static class GlobalVariables{
 	public static int pDamageDone;
     public static int eHealed;
     public static int pHealed;
+    public static bool gameStart;
     public static Animator pAnim;
 }

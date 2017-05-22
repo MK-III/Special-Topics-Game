@@ -81,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BeamTriggered.cs" />
     <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\Scripts\Combat\Combat.cs" />
     <Compile Include="Assets\Scripts\Combat\Player.cs" />
@@ -121,8 +122,12 @@
     <Compile Include="Assets\Scripts\Level Gen\GenerateRoom.cs" />
     <Compile Include="Assets\Scripts\Level Gen\NaturalLevelGen.cs" />
     <Compile Include="Assets\Scripts\Level Generator.cs" />
+    <Compile Include="Assets\Scripts\Opening.cs" />
     <Compile Include="Assets\Scripts\PlayerHandler.cs" />
+    <Compile Include="Assets\Scripts\SmoothBackground.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera.cs" />
+    <Compile Include="Assets\Scripts\SmoothCamera2.cs" />
+    <Compile Include="Assets\stopCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Items\Item IDs.txt" />
