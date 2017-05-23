@@ -26,6 +26,7 @@ public class Opening : MonoBehaviour{
     void FixedUpdate()
     {
         GlobalVariables.gameStart = started;
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());//idk why this works but it does
     }
 
     void Update()

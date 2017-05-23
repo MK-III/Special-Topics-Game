@@ -81,8 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BeamTriggered.cs" />
-    <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\Scripts\BeamTriggered.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Combat\Combat.cs" />
     <Compile Include="Assets\Scripts\Combat\Player.cs" />
     <Compile Include="Assets\Scripts\Combat\ReturnToMain.cs" />
@@ -127,7 +127,7 @@
     <Compile Include="Assets\Scripts\SmoothBackground.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera2.cs" />
-    <Compile Include="Assets\stopCamera.cs" />
+    <Compile Include="Assets\Scripts\stopCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Items\Item IDs.txt" />
